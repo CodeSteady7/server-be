@@ -1,0 +1,271 @@
+<!-- <div style="width: 1230px;margin: 2rem 0px;"> -->
+  <div class="size-layout-pages">
+  <div class="size-layout-title-pages"
+  >
+    <div>
+      <img src="/images/ic-pertaarungas.png" style="width: 100px" />
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center">
+      <span style="padding: 3px 0px; font-weight: 700; font-size: 20px"
+        >POWER GENERATION SYSTEM UNIT - 90</span
+      >
+      <span style="padding: 3px 0px; font-weight: 700; font-size: 20px"
+        >PG-9001</span
+      >
+      <span class="DateSheet" style="padding: 8px 0px 0px 0px; font-weight: 600; font-size: 17px">
+        Date : <%= data.queryDate %>
+      </span>
+    </div>
+    <div>
+      <span>PAG-408</span>
+    </div>
+    <div style="position: absolute; right: 9px; bottom: 0px">
+      <h5>SHEET : 3 OF 5</h5>
+    </div>
+  </div>
+  <div class="size-layout-body-pages">
+    <% let indexArraySheetThree_temp = indexArraySheetThree.map((i) => data.temp[i]) %>
+   
+    <!-- <%= console.log('indexArraySheetThree_temp', indexArraySheetThree_temp) %> -->
+ 
+ <table style="width: 100%;
+   height: 50%;" >
+      <thead class="thread-pages">
+        <tr>
+          <th rowspan="3" >Hours</th>
+
+          <th colspan="9" style="padding: 3px 0px">
+            FIRST STAGE WHEEL SPACE TEMPERATURE °C
+          </th>
+          <th colspan="9">SECOND STAGE WHEEL SPACE TEMPERATURE °C</th>
+          <th colspan="4">COMP TEMP ( °C )</th>
+          <th colspan="4">EXHAUST TEMP ( °C )</th>
+          <th rowspan="3" style="width: 140px;">REMARKS</th>
+        </tr>
+        <tr>
+          <th class="verticalTable">FWD 2</th>
+          <th class="verticalTable">FWD 3</th>
+          <th class="verticalTable">DIFF</br>FWD 2-3</th>
+          <th class="verticalTable">AVE</br>FWD 2-3</th>
+          <th class="verticalTable">AFD 2</th>
+          <th class="verticalTable">AFD 3</th>
+          <th class="verticalTable">DIFF</br>AFD 2-3</th>
+          <th class="verticalTable">AVE</br>AFT 2-3</th>
+          <th class="verticalTable">DIFF</br>FWD - AFD</th>
+          <!--  -->
+          <th class="verticalTable">FWD 2</th>
+          <th class="verticalTable">FWD 3</th>
+          <th class="verticalTable">DIFF</br>FWD 2-3</th>
+          <th class="verticalTable">AVE</br>FWD 2-3</th>
+          <th class="verticalTable">AFT 1</th>
+          <th class="verticalTable">AFT 2</th>
+          <th class="verticalTable">DIFF</br>AFT 1-2</th>
+          <th class="verticalTable">AVE</br>AFT 1-2</th>
+          <th class="verticalTable">DIFF</br>FWD - AFT</th>
+          <!--  -->
+          <th class="verticalTable">DISCHARGE </br> ANUL L</th>
+          <th class="verticalTable">DISCHARGE </br> ANUL R</th>
+          <th class="verticalTable">DIFF L - R</th>
+          <th class="verticalTable">INLET AIR</th>
+          <!--  -->
+          <th class="">1</th>
+          <th class="">2</th>
+          <th class="">3</th>
+          <th class="">4</th>
+        </tr>
+        <tr>
+          <th class="paddingTable widthTable-sheet3">427</th>
+          <th class="paddingTable widthTable-sheet3">427</th>
+          <th class="paddingTable widthTable-sheet3">83</th>
+          <th class="paddingTable widthTable-sheet3"></th>
+          <th class="paddingTable widthTable-sheet3">427</th>
+          <th class="paddingTable widthTable-sheet3">427</th>
+          <th class="paddingTable widthTable-sheet3">83</th>
+          <th class="paddingTable widthTable-sheet3"></th>
+          <th class="paddingTable widthTable-sheet3">83</th>
+          <th class="paddingTable widthTable-sheet3">427</th>
+          <th class="paddingTable widthTable-sheet3">427</th>
+          <th class="paddingTable widthTable-sheet3">83</th>
+          <th class="paddingTable widthTable-sheet3"></th>
+          <th class="paddingTable widthTable-sheet3">427</th>
+          <th class="paddingTable widthTable-sheet3">427</th>
+          <th class="paddingTable widthTable-sheet3">83</th>
+          <th class="paddingTable widthTable-sheet3"></th>
+          <th class="paddingTable widthTable-sheet3">83</th>
+          <th class="paddingTable widthTable-sheet3"></th>
+          <th class="paddingTable widthTable-sheet3"></th>
+          <th class="paddingTable widthTable-sheet3">11</th>
+          <th class="paddingTable widthTable-sheet3"></th>
+          <th class="paddingTable widthTable-sheet3"></th>
+          <th class="paddingTable widthTable-sheet3"></th>
+          <th class="paddingTable widthTable-sheet3"></th>
+          <th class="paddingTable widthTable-sheet3"></th>
+        </tr>
+      </thead>
+      <tbody class="tbody-pages" style="text-align: center">
+        <!--  -->
+        <% for(let i = 0; i < indexArraySheetThree_temp.length; i++) { %>
+
+        <tr>
+          <td><%= indexArraySheetThree_temp[i].clock %></td>
+          <td><%= data.temp[i].value.get_tbl_firststage_wheelspace[0]?.value_first_fwd2 %></td>
+          <td><%= data.temp[i].value.get_tbl_firststage_wheelspace[0]?.value_first_fwd3 %></td>
+          <td></td>
+          <td></td>
+          <td><%= data.temp[i].value.get_tbl_firststage_wheelspace[0]?.value_first_afd2 %></td>
+          <td><%= data.temp[i].value.get_tbl_firststage_wheelspace[0]?.value_first_afd3 %></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><%= data.temp[i].value.get_tbl_second_wheelspace[0]?.value_second_fwd2 %></td>
+          <td><%= data.temp[i].value.get_tbl_second_wheelspace[0]?.value_second_fwd3 %></td>
+          <td></td>
+          <td></td>
+          <td><%= data.temp[i].value.get_tbl_second_wheelspace[0]?.value_second_aft1 %></td>
+          <td><%= data.temp[i].value.get_tbl_second_wheelspace[0]?.value_second_aft2 %></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><%= data.temp[i].value.get_tbl_comp_temp[0]?.value_discharge_anulr %></td>
+          <td></td>
+          <td><%= data.temp[i].value.get_tbl_comp_temp[0]?.value_inletair %></td>
+          <td><%= data.temp[i].value.get_tbl_exhaust_temp[0]?.value_1_exhaustTemp %></td>
+          <td><%= data.temp[i].value.get_tbl_exhaust_temp[0]?.value_2_exhaustTemp %></td>
+          <td><%= data.temp[i].value.get_tbl_exhaust_temp[0]?.value_3_exhaustTemp %></td>
+          <td><%= data.temp[i].value.get_tbl_exhaust_temp[0]?.value_4_exhaustTemp %></td>
+        </tr>
+        <%}%>
+      </tbody>
+    </table>
+ 
+  
+    <table style="width: 100%;
+    height: 50%;" >
+      <thead class="thread-pages">
+        <tr>
+          <th rowspan="3" >Hours</th>
+          <th colspan="25" style="padding: 3px 0px">
+            EXHAUST FUEL GAS TEMPERATURE °C
+          </th>
+        </tr>
+        <tr>
+          <th>5</th>
+          <th>6</th>
+          <th>7</th>
+          <th>8</th>
+          <th>9</th>
+          <th>10</th>
+          <th>11</th>
+          <th>12</th>
+          <th>AT </br> 1-12</th>
+          <th>Ave </br>TX</th>
+          <th>T1</th>
+          <th>T2</th>
+          <th>T3</th>
+          <th>T4</th>
+          <th>T5</th>
+          <th>T6</th>
+          <th class="verticalTable">OTA</th>
+          <th class="verticalTable">OTB</th>
+          <th class="verticalTable">OTC</th>
+          <th class="verticalTable">T-Ave</th>
+          <th class="verticalTable">T-TX</th>
+          <th class="verticalTable">T-OTA</th>
+          <th class="verticalTable">T-OTB</th>
+          <th class="verticalTable">T-OTC</th>
+          <th>FUEL </br> TEMP( °C )</th>
+          <th style="width: 140px;"></th>
+        </tr>
+        <tr>
+          <th class="paddingTable widthTable-sheet3"></th>
+          <th class="paddingTable widthTable-sheet3"></th>
+          <th class="paddingTable widthTable-sheet3"></th>
+          <th class="paddingTable widthTable-sheet3"></th>
+          <th class="paddingTable widthTable-sheet3"></th>
+          <th class="paddingTable widthTable-sheet3"></th>
+          <th class="paddingTable widthTable-sheet3"></th>
+          <th class="paddingTable widthTable-sheet3"></th>
+          <th class="paddingTable widthTable-sheet3"></th>
+          <th class="paddingTable widthTable-sheet3"></th>
+          <th class="paddingTable widthTable-sheet3"></th>
+          <th class="paddingTable widthTable-sheet3"></th>
+          <th class="paddingTable widthTable-sheet3"></th>
+          <th class="paddingTable widthTable-sheet3"></th>
+          <th class="paddingTable widthTable-sheet3"></th>
+          <th class="paddingTable widthTable-sheet3"></th>
+          <th class="paddingTable widthTable-sheet3"></th>
+          <th class="paddingTable widthTable-sheet3"></th>
+          <th class="paddingTable widthTable-sheet3"></th>
+          <th class="paddingTable widthTable-sheet3"></th>
+          <th class="paddingTable widthTable-sheet3">28</th>
+          <th class="paddingTable widthTable-sheet3">28</th>
+          <th class="paddingTable widthTable-sheet3">28</th>
+          <th class="paddingTable widthTable-sheet3">28</th>
+          <th class="paddingTable widthTable-sheet3" style="width: 80px !important;"></th>
+          <th class="paddingTable widthTable-sheet3"></th>
+        </tr>
+      </thead>
+      <tbody class="tbody-pages" style="text-align: center">
+        <!--  -->
+        <% for(let i = 0; i < indexArraySheetThree_temp.length; i++) { %>
+
+        <tr>
+          <!-- <td><%= data.temp[i].clock %></td> -->
+          <td><%= indexArraySheetThree_temp[i].clock %></td>
+          <td><%= data.temp[i].value.get_tbl_exhaust_flue_gas_temperature[0]?.value_5_exhaustFluegas %></td>
+          <td><%= data.temp[i].value.get_tbl_exhaust_flue_gas_temperature[0]?.value_6_exhaustFluegas %></td>
+          <td><%= data.temp[i].value.get_tbl_exhaust_flue_gas_temperature[0]?.value_7_exhaustFluegas %></td>
+          <td><%= data.temp[i].value.get_tbl_exhaust_flue_gas_temperature[0]?.value_8_exhaustFluegas %></td>
+          <td><%= data.temp[i].value.get_tbl_exhaust_flue_gas_temperature[0]?.value_9_exhaustFluegas %></td>
+          <td><%= data.temp[i].value.get_tbl_exhaust_flue_gas_temperature[0]?.value_10_exhaustFluegas %></td>
+          <td><%= data.temp[i].value.get_tbl_exhaust_flue_gas_temperature[0]?.value_11_exhaustFluegas %></td>
+          <td><%= data.temp[i].value.get_tbl_exhaust_flue_gas_temperature[0]?.value_12_exhaustFluegas %></td>
+          <td></td>
+          <td><%= data.temp[i].value.get_tbl_exhaust_flue_gas_temperature[0]?.value_AVETX_exhaustFluegas %></td>
+          <td><%= data.temp[i].value.get_tbl_exhaust_flue_gas_temperature[0]?.value_T1_exhaustFluegas %></td>
+          <td><%= data.temp[i].value.get_tbl_exhaust_flue_gas_temperature[0]?.value_T2_exhaustFluegas %></td>
+          <td><%= data.temp[i].value.get_tbl_exhaust_flue_gas_temperature[0]?.value_T3_exhaustFluegas %></td>
+          <td><%= data.temp[i].value.get_tbl_exhaust_flue_gas_temperature[0]?.value_T4_exhaustFluegas %></td>
+          <td><%= data.temp[i].value.get_tbl_exhaust_flue_gas_temperature[0]?.value_T5_exhaustFluegas %></td>
+          <td><%= data.temp[i].value.get_tbl_exhaust_flue_gas_temperature[0]?.value_T6_exhaustFluegas %></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><%= data.temp[i].value.get_tbl_fuel_temp[0]?.value_fuel_temp %></td>
+          <td></td>
+        </tr>
+        <%}%>
+      </tbody>
+    </table>
+  </div>
+  <div class="size-layout-footer-pages">
+    <div class="signature" style="position:relative">
+      <span style="position: absolute; top:10px; left:10px"><%= data.db_signature.range_date01 %></span>
+      <div class="signature_user" >
+        <h4 style="padding-right: 10px;">Opr.: <span class="signature_user_underline">
+       <%= data.db_signature.operation_name_signature01 %>  </span></h4>
+        <h4>Supv./Panelman : <span class="signature_user_underline"><%= data.db_signature.suprv_name_signature01 %></span></h4>
+      </div>
+    </div>
+    <div class="signature" style="position:relative">
+      <span style="position: absolute; top:10px; left:10px"><%= data.db_signature.range_date02 %></span>
+      <div class="signature_user" >
+        <h4 style="padding-right: 10px;">Opr.:<span class="signature_user_underline"><%= data.db_signature.operation_name_signature02 %></span> </h4>
+        <h4>Supv./Panelman :<span class="signature_user_underline"><%= data.db_signature.suprv_name_signature02 %></span> </h4>
+      </div>
+    </div>
+    <div class="signature" style="position:relative">
+      <span style="position: absolute; top:10px; left:10px"><%= data.db_signature.range_date03 %></span>
+      <div class="signature_user" >
+        <h4 style="padding-right: 10px;">Opr.:<span class="signature_user_underline"> <%= data.db_signature.operation_name_signature03 %></span></h4> <h4>Supv./Panelman :<span class="signature_user_underline"><%= data.db_signature.suprv_name_signature03 %></span> </h4>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- </div> -->

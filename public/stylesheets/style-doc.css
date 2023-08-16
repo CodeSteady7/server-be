@@ -1,0 +1,157 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0px;
+  margin: 0px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+a {
+  color: #00B7FF;
+}
+
+table,
+tr,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+tr,
+th {
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.paddingTable {
+  padding: 5px 0px;
+}
+
+.verticalTable {
+  writing-mode: tb-rl;
+  transform: rotate(180deg);
+  /* transform: rotate(-90deg); */
+  /* padding: 0px 10px; */
+}
+
+.signature {
+  width: 33.3%;
+  height: 100%;
+  border: solid;
+  border-width: 1px;
+}
+
+td {
+  /* padding: 5px 5px; */
+  height: 20px;
+}
+
+.wrapper_table {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 10px;
+  height: 100%;
+}
+
+.table_first {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.table_third {
+  grid-column-start: 3;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+.table_second {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.signature_user {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 15px;
+  position: absolute;
+  bottom: 0px;
+}
+
+.signature_user_underline {
+  text-decoration: underline;
+  text-decoration-color: gray
+}
+
+
+.size-table {
+  width: 100%;
+  height: 100%;
+}
+
+.size-pages {
+  /* width: 1230px;height: 794px;
+*/
+  width: 1230px;
+  height: 634px;
+  margin: 30px 0px;
+}
+
+.size-layout-pages {
+  height: 100%;
+}
+
+.size-layout-title-pages {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  border: solid;
+  border-width: 1px;
+  align-items: center;
+  position: relative;
+  height: 15%;
+}
+
+.size-layout-body-pages {
+  height: 72%;
+}
+
+.size-layout-footer-pages {
+  height: 13%;
+  border: solid;
+  border-width: 1px;
+  display: flex;
+}
+
+.verticalTable-sheet4 {
+  writing-mode: tb-rl;
+  transform: rotate(180deg);
+  width: 55px;
+}
+
+.widthTable-sheet1 {
+  width: 40px;
+}
+
+.widthTable-sheet2 {
+  width: 40px;
+}
+
+.widthTable-sheet3 {
+  width: 40px;
+}
+
+
+.thread-pages {
+  height: 30% !important;
+}
+
+.tbody-pages {
+  height: 70% !important;
+}

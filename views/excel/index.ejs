@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style-doc.css" />
+  </head>
+  <body>
+    <!-- <div style="display: flex; flex-direction: column">
+      <button id="id_click">click</button>
+    </div> -->
+    <div>
+      <!--  -->
+      <!--  -->
+      <div class="size-pages">
+        <!--  -->
+        <%- include ./sheet1.ejs %>
+        <!--  -->
+      </div>
+      <div style="page-break-after: always"></div>
+      <div class="size-pages">
+        <!--  -->
+        <%- include ./sheet2.ejs %>
+        <!--  -->
+      </div>
+      <div style="page-break-after: always"></div>
+      <!--  -->
+      <div class="size-pages">
+        <!--  -->
+
+        <%- include ./sheet3.ejs %>
+        <!--  -->
+      </div>
+      <!--  -->
+      <div style="page-break-after: always"></div>
+      <!--  -->
+      <div class="size-pages">
+        <!--  -->
+        <%- include ./sheet4.ejs %>
+        <!--  -->
+      </div>
+      <!--  -->
+      <div style="page-break-after: always"></div>
+      <!--  -->
+      <div class="size-pages">
+        <!--  -->
+        <%- include ./sheet5.ejs %>
+        <!--  -->
+      </div>
+
+      <div style="page-break-after: always"></div>
+      <!--  -->
+    </div>
+  </body>
+</html>
+<!-- <script
+  src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+  integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"></script>
+<script src="html2pdf.bundle.min.js"></script>
+<script>
+  document.getElementById("id_click").onclick = function () {
+    console.log("first");
+    var element = document.getElementById("element-to-print");
+    var opt = {
+      margin: [0.6, 0.6, 0, 0],
+      filename: "myfile.pdf",
+      image: { type: "jpeg", quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: "in", format: "legal", orientation: "landscape" },
+    };
+
+    // New Promise-based usage:
+    html2pdf().set(opt).from(element).save();
+
+    // Old monolithic-style usage:
+    html2pdf(element, opt);
+  };
+</script> -->
+<!-- style="page-break-after: always" -->
+
+<script>
+  let setDate = "<%=data.queryDate%>";
+  let arrayDate = setDate.split("-");
+  let dataSheet = `${arrayDate[1]}/${arrayDate[2]}/${arrayDate[0]}`;
+
+  let setDateSheet = document.getElementsByClassName("DateSheet");
+
+  for (let i = 0; i < setDateSheet.length; i++) {
+    setDateSheet[i].innerHTML = `DATE : ${dataSheet}`;
+    setDateSheet[i].style.fontWeight = "500";
+    console.log("set =>", setDateSheet[i]);
+  }
+
+  console.log("setDate", dataSheet, setDateSheet);
+</script>

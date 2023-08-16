@@ -1,0 +1,130 @@
+<div class="size-layout-pages">
+  <div class="size-layout-title-pages"
+  >
+    <div>
+      <img src="/images/ic-pertaarungas.png" style="width: 100px" />
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center">
+      <span style="padding: 3px 0px; font-weight: 700; font-size: 20px"
+        >POWER GENERATION SYSTEM UNIT - 90</span
+      >
+      <span style="padding: 3px 0px; font-weight: 700; font-size: 20px"
+        >PG-9001</span
+      >
+      <span class="DateSheet" style="padding: 8px 0px 0px 0px; font-weight: 600; font-size: 17px">
+        Date : <%= data.queryDate %>
+      </span>
+    </div>
+    <div>
+      <span>PAG-408</span>
+    </div>
+    <div style="position: absolute; right: 9px; bottom: 0px">
+      <h5>SHEET : 4 OF 5</h5>
+    </div>
+  </div>
+  <div class="size-layout-body-pages">
+    <table class="size-table ">
+      <thead>
+        <tr>
+          <th rowspan="3" style="padding: 50px 10px">Hours</th>
+
+          <th colspan="4" style="padding: 10px 0px">
+            FUEL GAS PRESS
+          </th>
+          <th colspan="2">COMP. DISC. AIR PRESS</th>
+          <th colspan="5">DIFF. PRESS</th>
+          <th rowspan="2" class="verticalTable-sheet4">FUEL DIESEL LEVEL</th>
+          <th rowspan="2" class="verticalTable-sheet4">LUBE OIL LEVEL</th>
+          <th colspan="2">LEL</th>
+          <th colspan="2">COOLING WATER</th>
+          <th rowspan="2" class="verticalTable-sheet4">AMBIENT TEMP.</th>
+          <th rowspan="2" >GAS </br> CONSUMPTION</th>
+          <th rowspan="2" >REMARKS</th>
+        </tr>
+        <tr>
+          <th class="verticalTable-sheet4">HP GAS BEFORE </br> KOD</th>
+          <th class="verticalTable-sheet4">BEFORE STOP </br> VALVE</th>
+          <th class="verticalTable-sheet4">AFTER GAS STOP </br> VALVE</th>
+          <th class="verticalTable-sheet4">AFTER GAS </br> CONTROL VALVE</th>
+          <!--  -->
+          <th class="verticalTable-sheet4">AFTER POROUS </br> FILTER</th>
+          <th class="verticalTable-sheet4">'( For 96 CD )</th>
+
+          <!--  -->
+          <th class="verticalTable-sheet4">INLET HOUSE </br> FILTER</th>
+          <th class="verticalTable-sheet4">LUBE OIL FILTER</th>
+          <th class="verticalTable-sheet4">CONTROL OIL </br>  FILTER</th>
+          <th class="verticalTable-sheet4">HYD. OIL FILTER</th>
+          <th class="verticalTable-sheet4">AIR COOLER </br> FILTER</th>
+          <!--  -->
+          <th class="verticalTable-sheet4">DETECTOR NO.1</th>
+          <th class="verticalTable-sheet4">DETECTOR NO.2</th>
+          <!--  -->
+          <th class="verticalTable-sheet4">FLOW</th>
+          <th class="verticalTable-sheet4">TEMPERATURE</th>
+          <!--  -->
+        </tr>
+        <tr>
+          <th colspan="11" class="paddingTable">KG/CM²</th>
+          <th colspan="4"class="paddingTable"></th>
+          <th class="paddingTable">M³/H</th>
+          <th colspan="2"class="paddingTable">° C</th>
+          <th class="paddingTable">M³</th>
+          <th class="paddingTable"></th>
+        </tr>
+      </thead>
+      <tbody style="text-align: center">
+        <!--  -->
+        <% for(let i = 0; i < data.temp.length; i++) { %>
+          <tr>
+          <td><%= data.temp[i].clock %></td>
+          <td><%= data.temp[i].value.get_tbl_fuelgas_press[0]?.value_hpgas_before %></td>
+          <td><%= data.temp[i].value.get_tbl_fuelgas_press[0]?.value_beforestop_value %></td>
+          <td><%= data.temp[i].value.get_tbl_fuelgas_press[0]?.value_aftergas_stopvalue %></td>
+          <td><%= data.temp[i].value.get_tbl_fuelgas_press[0]?.value_aftergas_controlvalue %></td>
+          <td><%= data.temp[i].value.get_tbl_compdisch_airpress[0]?.value_afterporous_filter %></td>
+          <td><%= data.temp[i].value.get_tbl_compdisch_airpress[0]?.value_for96cd %></td>
+          <td><%= data.temp[i].value.get_tbl_diffpress[0]?.value_inlethouse_filter %></td>
+          <td><%= data.temp[i].value.get_tbl_diffpress[0]?.value_lubeoil_filter %></td>
+          <td><%= data.temp[i].value.get_tbl_diffpress[0]?.value_controloil_filter %></td>
+          <td><%= data.temp[i].value.get_tbl_diffpress[0]?.value_hydoil_filter %></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+
+          <td></td>
+          <td><%= data.temp[i].value.get_tbl_cooling_water[0]?.value_temperature %></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <%}%>
+      </tbody>
+    </table>
+  </div>
+  <div class="size-layout-footer-pages">
+    <div class="signature" style="position:relative">
+      <span style="position: absolute; top:10px; left:10px"><%= data.db_signature.range_date01 %></span>
+      <div class="signature_user" >
+        <h4 style="padding-right: 10px;">Opr.: <span class="signature_user_underline">
+       <%= data.db_signature.operation_name_signature01 %>  </span></h4>
+        <h4>Supv./Panelman : <span class="signature_user_underline"><%= data.db_signature.suprv_name_signature01 %></span></h4>
+      </div>
+    </div>
+    <div class="signature" style="position:relative">
+      <span style="position: absolute; top:10px; left:10px"><%= data.db_signature.range_date02 %></span>
+      <div class="signature_user" >
+        <h4 style="padding-right: 10px;">Opr.:<span class="signature_user_underline"><%= data.db_signature.operation_name_signature02 %></span> </h4>
+        <h4>Supv./Panelman :<span class="signature_user_underline"><%= data.db_signature.suprv_name_signature02 %></span> </h4>
+      </div>
+    </div>
+    <div class="signature" style="position:relative">
+      <span style="position: absolute; top:10px; left:10px"><%= data.db_signature.range_date03 %></span>
+      <div class="signature_user" >
+        <h4 style="padding-right: 10px;">Opr.:<span class="signature_user_underline"> <%= data.db_signature.operation_name_signature03 %></span></h4> <h4>Supv./Panelman :<span class="signature_user_underline"><%= data.db_signature.suprv_name_signature03 %></span> </h4>
+      </div>
+    </div>
+  </div>
+</div>

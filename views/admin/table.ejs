@@ -1,0 +1,89 @@
+<%- include ../partials/header.ejs %>
+<!--  -->
+<%- include ../partials/navbar.ejs %>
+<!--  -->
+<%- include ../partials/sidebar.ejs %>
+
+<div class="content-wrapper pt-4">
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">FORM BALOG</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table id="example2" class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Tanggal</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!--  -->
+
+                  <!--  -->
+                  <% for(let i = 0; i < data.length; i++) {%>
+                  <!--  -->
+
+                  <!--  -->
+                  <% let setDate = data[i].split('-') %>
+                  <!--  -->
+                  <% let isDate = `${setDate[2]}-${setDate[1]}-${setDate[0]}` %>
+                  <!--  -->
+
+                  <tr>
+                    <td><%= i + 1 %></td>
+                    <td><%= isDate %></td>
+                    <td class="d-flex" style="justify-content: center">
+                      <a
+                        href="/data/getonedata?queryDate=<%=data[i]%>&page=1"
+                        class="btn btn-warning buttons-html5"
+                        type="button"
+                        target="_blank"
+                      >
+                        <span style="font-weight: 700; color: white">DOC</span>
+                      </a>
+                      <a
+                        href="/data/signature/<%=data[i]%>"
+                        class="btn btn-primary buttons-html5 ml-3"
+                        type="button"
+                      >
+                        <span style="font-weight: 700; color: white"
+                          >SIGNATURE</span
+                        >
+                      </a>
+                      <a
+                        href="/data/download?createdat=<%=data[i]%>"
+                        class="btn btn-danger buttons-html5 ml-3"
+                        type="button"
+                      >
+                        <span style="font-weight: 700; color: white"
+                          >DOWNLOAD</span
+                        >
+                      </a>
+                    </td>
+                  </tr>
+                  <%}%>
+                </tbody>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+</div>
+<!--  -->
+<%- include ../partials/footer.ejs %>
+<!--  -->
+<%- include ../partials/js.ejs %>

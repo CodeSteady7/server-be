@@ -1,0 +1,96 @@
+<%- include ../partials/header.ejs %>
+<!--  -->
+<%- include ../partials/navbar.ejs %>
+<!--  -->
+<%- include ../partials/sidebar.ejs %>
+<!--  -->
+
+<div class="content-wrapper pt-4">
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">FORM BALOG</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Tanggal</th>
+                    <th>Judul</th>
+                    <th>Lokasi</th>
+                    <th>Deskripsi</th>
+                    <th>Image</th>
+                    <th>Procces</th>
+                    <th>Action</th>
+                  </tr>''
+                </thead>
+                <tbody>
+                  <% for(let i = 0; i < data.length; i++) { %>
+                  <!--  -->
+                
+                 
+                  <tr>
+                    <td><%= i + 1 %></td>
+                    <td><%= data[i].createdAt %></td>
+                    <td><%= data[i].judul %></td>
+                    <td><%= data[i].lokasi %></td>
+                    <td><%= data[i].deskripsi %></td>
+                    <td>
+                      <img
+                        src="/data/uploads/<%=data[i].imageBase64%>"
+                        alt="img"
+                        style="width: 100px; height: 100px" />
+                    </td>
+                    <td>
+                      <div
+                        class="badge badge-<%= data[i].status === 'Menunggu' ?'warning':'success' %> p-2">
+                        <%= data[i].status %>
+                      </div>
+                    </td>
+                    <td>
+                      <form
+                        action="/report/<%=data[i].id%>?_method=DELETE>"
+                        method="POST">
+                        <div class="row" style="justify-content: center">
+                          <a
+                            href="/report/<%= data[i].id %>"
+                            type="button"
+                            class="btn btn-info"
+                            style="margin: 0px 5px"
+                            ><i class="fa fa-edit"></i>
+                          </a>
+
+                          <button
+                            class="btn btn-danger"
+                            style="margin: 0px 5px">
+                            <i class="fa fa-trash"></i>
+                          </button>
+                        </div>
+                      </form>
+                    </td>
+                  </tr>
+                  <% } %>
+                </tbody>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+</div>
+
+<!--  -->
+<%- include ../partials/footer.ejs %>
+<!--  -->
+<%- include ../partials/js.ejs %>

@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/aqilatec/root_backend/
+    - /bin/cp -R images $DEPLOYPATH

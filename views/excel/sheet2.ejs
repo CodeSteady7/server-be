@@ -1,0 +1,171 @@
+<!-- <div style="width: 1230px;margin: 2rem 0px;"> -->
+  <div class="size-layout-pages">
+
+  <div class="size-layout-title-pages"
+    
+  >
+    <div>
+      <img src="/images/ic-pertaarungas.png" style="width: 100px" />
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center">
+      <span style="padding: 3px 0px; font-weight: 700; font-size: 20px"
+        >POWER GENERATION SYSTEM UNIT - 90</span
+      >
+      <span style="padding: 3px 0px; font-weight: 700; font-size: 20px"
+        >PG-9001</span
+      >
+      <span class="DateSheet" style="padding: 8px 0px 0px 0px; font-weight: 600; font-size: 17px">
+        Date : <%= data.queryDate %>
+      </span>
+    </div>
+    <div>
+      <span>PAG-408</span>
+    </div>
+    <div style="position: absolute; right: 9px; bottom: 0px">
+      <h5>SHEET : 2 OF 5</h5>
+    </div>
+  </div>
+  <div class="size-layout-body-pages">
+    <table class="styleBorder size-table">
+      <thead class="thread-pages">
+        <tr>
+          <th rowspan="3" style="padding: 50px 10px">Hours</th>
+          <th rowspan="2" class="verticalTable">TURBINE SPEED</th>
+          <th rowspan="2" class="verticalTable">VCE</th>
+          <th rowspan="2" class="verticalTable">DSP</th>
+          <th rowspan="2" class="verticalTable">GAS FLOW</th>
+          <th rowspan="2" class="verticalTable">LOAD</th>
+          <th rowspan="2" class="verticalTable">FIRED TIME</th>
+          <th rowspan="2" class="verticalTable">PEAK FIRED TIME</th>
+          <th rowspan="2" class="verticalTable">FIRED STARTS</th>
+          <th rowspan="2" class="verticalTable">MANUAL INITIATED </br> START</th>
+          <th rowspan="2" class="verticalTable">FAST START</th>
+          <th colspan="10">TEMPERATURE ( °C )</th>
+          <th rowspan="2" class="verticalTable">LUBE OIL</br>TANK TEMP</th>
+          <th rowspan="2" class="verticalTable">LUBE OIL </br> BEARING TEMP</th>
+          <th rowspan="2" class="verticalTable">COOLING </br> WATER TEMP</th>
+          <th colspan="7">LUBE OIL PRESS</th>
+          <th rowspan="2" class="verticalTable">HYD. TRIP </br> CIRCUIT PRESS</th>
+          <th rowspan="2" class="verticalTable">HYD. OIL PRESS </br> (FOR 63HQ)</th>
+        </tr>
+        <tr>
+          <th class="verticalTable">OIL COOLER </br> INLET</th>
+          <th class="verticalTable">OIL COOLER </br> OUTLET</th>
+          <th class="verticalTable">JOURNAL AND </br> THRUST DRAIN</th>
+          <th class="verticalTable">BEARING DRAIN </br> NO.2</th>
+          <th class="verticalTable">GEAR PINION </br> NO. 1</th>
+          <th class="verticalTable">GEAR WHEEL </br> NO. 2</th>
+          <th class="verticalTable">GEAR WHEEL </br> NO. 3</th>
+          <th class="verticalTable">GEAR WHEEL </br> NO. 4</th>
+          <th class="verticalTable">GEAR WHEEL </br> NO. 5</th>
+          <th class="verticalTable">GENERATOR </br> DRAIN</th>
+          <th class="verticalTable">MAIN OIL PUMP </br> DISCH</th>
+          <th class="verticalTable">AUX OIL PUMP </br> DISCH</th>
+          <th class="verticalTable">ENGINE OIL </br> PUMP DISCH</th>
+          <th class="verticalTable">FWD FILTER</th>
+          <th class="verticalTable">TURBINE BEARING </br> HEADER</th>
+          <th class="verticalTable">GEN. BEARING </br> HEADER</th>
+          <th class="verticalTable">( FOR 63 HR )</th>
+        </tr>
+        <tr>
+          <th class="paddingTable widthTable-sheet2">RPM</th>
+          <th class="paddingTable widthTable-sheet2"></th>
+          <th class="paddingTable widthTable-sheet2">V</th>
+          <th class="paddingTable widthTable-sheet2">M³/Hr</th>
+          <th class="paddingTable widthTable-sheet2">MW</th>
+          <th class="paddingTable widthTable-sheet2"></th>
+          <th class="paddingTable widthTable-sheet2"></th>
+          <th class="paddingTable widthTable-sheet2"></th>
+          <th class="paddingTable widthTable-sheet2"></th>
+          <th class="paddingTable widthTable-sheet2"></th>
+          <th class="paddingTable widthTable-sheet2"></th>
+          <th class="paddingTable widthTable-sheet2"></th>
+          <th class="paddingTable widthTable-sheet2"></th>
+          <th class="paddingTable widthTable-sheet2"></th>
+          <th class="paddingTable widthTable-sheet2"></th>
+          <th class="paddingTable widthTable-sheet2"></th>
+          <th class="paddingTable widthTable-sheet2"></th>
+          <th class="paddingTable widthTable-sheet2"></th>
+          <th class="paddingTable widthTable-sheet2"></th>
+          <th class="paddingTable widthTable-sheet2"></th>
+          <th class="paddingTable widthTable-sheet2"></th>
+          <th class="paddingTable widthTable-sheet2"></th>
+          <th class="paddingTable widthTable-sheet2"></th>
+          <th class="paddingTable widthTable-sheet2"></th>
+          <th class="paddingTable widthTable-sheet2"></th>
+          <th class="paddingTable widthTable-sheet2"></th>
+          <th class="paddingTable widthTable-sheet2"></th>
+          <th class="paddingTable widthTable-sheet2"></th>
+          <th class="paddingTable widthTable-sheet2"></th>
+          <th class="paddingTable widthTable-sheet2"></th>
+          <th class="paddingTable widthTable-sheet2"></th>
+          <th class="paddingTable widthTable-sheet2"></th>
+        </tr>
+      </thead>
+      <tbody class="tbody-pages" style="text-align: center" >
+        <!--  -->
+        <% for(let i = 0; i < data.temp.length; i++) { %>
+
+        <tr>
+        <td><%= data.temp[i].clock %></td>
+          <td><%= data.temp[i].value.get_tbl_turbinspeed[0]?.value_rpm %></td>
+          <td><%= data.temp[i].value.get_tbl_vce[0]?.value_vce %></td>
+          <td><%= data.temp[i].value.get_tbl_dsp[0]?.value_dsp %></td>
+          <td><%= data.temp[i].value.get_tbl_gasflow[0]?.value_M37H %></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><%= data.temp[i].value.get_tbl_lube_oil_temp[0]?.value_oilcooler_inlet %></td>
+          <td><%= data.temp[i].value.get_tbl_lube_oil_temp[0]?.value_oilcooler_outlet %></td>
+          <td><%= data.temp[i].value.get_tbl_lube_oil_temp[0]?.value_journaland_thrustdrain %></td>
+          <td><%= data.temp[i].value.get_tbl_lube_oil_temp[0]?.value_no2_bearingdrain %></td>
+          <td><%= data.temp[i].value.get_tbl_lube_oil_temp[0]?.value_gearpinion_no1 %></td>
+          <td><%= data.temp[i].value.get_tbl_lube_oil_temp[0]?.value_gearwheel_no2 %></td>
+          <td><%= data.temp[i].value.get_tbl_lube_oil_temp[0]?.value_gearwheel_no3 %></td>
+          <td><%= data.temp[i].value.get_tbl_lube_oil_temp[0]?.value_gearwheel_no4 %></td>
+          <td><%= data.temp[i].value.get_tbl_lube_oil_temp[0]?.value_gearwheel_no5 %></td>
+          <td><%= data.temp[i].value.get_tbl_lube_oil_temp[0]?.value_generator_drain %></td>
+          <td><%= data.temp[i].value.get_tbl_lubeoil_tanktemp[0]?.value_lubeoil_tanktemp %></td>
+          <td><%= data.temp[i].value.get_tbl_lubeoil_bearingtemperature[0]?.value_lubeoil_bearingtemperature %></td>
+          <td></td>
+          <td><%= data.temp[i].value.get_tbl_lubeoil_press[0]?.value_main_oil_pump %></td>
+          <td></td>
+          <td></td>
+          <td><%= data.temp[i].value.get_tbl_lubeoil_press[0]?.value_fwdfilter %></td>
+          <td><%= data.temp[i].value.get_tbl_lubeoil_press[0]?.value_turbinebearing_header %></td>
+          <td><%= data.temp[i].value.get_tbl_lubeoil_press[0]?.value_gen_bearingheader %></td>
+          <td></td>
+          <td><%= data.temp[i].value.get_tbl_hvdtrip_circuitpress[0]?.value_hvdtrip_circuitpress %></td>
+          <td><%= data.temp[i].value.get_tbl_hvdoil_press[0]?.value_hvdoil_press %></td>
+        <%}%>
+      </tbody>
+    </table>
+  </div>
+  <div class="size-layout-footer-pages" >
+    <div class="signature" style="position:relative">
+      <span style="position: absolute; top:10px; left:10px"><%= data.db_signature.range_date01 %></span>
+      <div class="signature_user" >
+        <h4 style="padding-right: 10px;">Opr.: <span class="signature_user_underline">
+       <%= data.db_signature.operation_name_signature01 %>  </span></h4>
+        <h4>Supv./Panelman : <span class="signature_user_underline"><%= data.db_signature.suprv_name_signature01 %></span></h4>
+      </div>
+    </div>
+    <div class="signature" style="position:relative">
+      <span style="position: absolute; top:10px; left:10px"><%= data.db_signature.range_date02 %></span>
+      <div class="signature_user" >
+        <h4 style="padding-right: 10px;">Opr.:<span class="signature_user_underline"><%= data.db_signature.operation_name_signature02 %></span> </h4>
+        <h4>Supv./Panelman :<span class="signature_user_underline"><%= data.db_signature.suprv_name_signature02 %></span> </h4>
+      </div>
+    </div>
+    <div class="signature" style="position:relative">
+      <span style="position: absolute; top:10px; left:10px"><%= data.db_signature.range_date03 %></span>
+      <div class="signature_user" >
+        <h4 style="padding-right: 10px;">Opr.:<span class="signature_user_underline"> <%= data.db_signature.operation_name_signature03 %></span></h4> <h4>Supv./Panelman :<span class="signature_user_underline"><%= data.db_signature.suprv_name_signature03 %></span> </h4>
+      </div>
+    </div>
+  </div>
+</div>
+

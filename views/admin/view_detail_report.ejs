@@ -1,0 +1,112 @@
+<%- include ../partials/header.ejs %>
+<!--  -->
+<%- include ../partials/navbar.ejs %>
+<!--  -->
+<%- include ../partials/sidebar.ejs %>
+<!--  -->
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>Report</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active">Report</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+    <!-- Default box -->
+    <form
+      action="/report/<%=data.id%>"
+      method="POST"
+      enctype="multipart/form-data">
+      <div class="card">
+        <div
+          class=""
+          style="
+            display: flex;
+            justify-content: right;
+            padding: 25px 30px 10px 0px;
+          ">
+          <span style="font-weight: 700; color: gray"
+            ><%= data.createdAt %></span
+          >
+        </div>
+        <div class="card-body row">
+          <div
+            class="col-5 text-center d-flex align-items-center justify-content-center">
+            <img
+              src="/data/uploads/<%=data.imageBase64%>"
+              alt=""
+              style="max-width: 500px; max-height: 400px"
+              name="image" />
+          </div>
+          <div class="col-7">
+            <div class="form-group">
+              <label for="inputName">Judul</label>
+              <input
+                type="text"
+                id="inputName"
+                class="form-control"
+                value="<%=data.judul%>"
+                name="judul"
+                disabled />
+            </div>
+            <div class="form-group">
+              <label for="inputEmail">Lokasi</label>
+              <input
+                type="email"
+                id="inputEmail"
+                class="form-control"
+                value="<%=data.lokasi%>"
+                name="lokasi"
+                disabled />
+            </div>
+            <div class="form-group">
+              <label for="inputSubject">Deskripsi</label>
+              <input
+                type="text"
+                id="inputSubject"
+                class="form-control"
+                name="deskripsi"
+                value="<%=data.deskripsi%>"
+                disabled />
+            </div>
+
+            <div class="form-group">
+              <label for="inputMessage">Laporan Perbaikan</label>
+              <textarea
+                id="inputMessage"
+                class="form-control"
+                name="reportRepair"
+                rows="4"></textarea>
+            </div>
+
+            <div style="display: flex; justify-content: end">
+              <div class="form-group" style="margin: 0px 10px">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </section>
+  <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<!--  -->
+<%- include ../partials/footer.ejs %>
+<!--  -->
+<%- include ../partials/js.ejs %>

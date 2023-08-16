@@ -1,0 +1,966 @@
+<%- include ../../partials/header.ejs %>
+<!--  -->
+<%- include ../../partials/navbar.ejs %>
+<!--  -->
+<%- include ../../partials/sidebar.ejs %>
+<!--  -->
+<body class="hold-transition sidebar-mini">
+  <div class="wrapper">
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <div class="container-fluid">
+          <h2 class="text-center display-4">PG0001</h2>
+          <form action="/charts" method="POST">
+            <div class="row mt-4">
+              <div class="col-md-10 offset-md-1">
+                <div class="row" style="justify-content: center">
+                  <div class="col-6">
+                    <!-- Date -->
+                    <form action="/" method="POST">
+                      <div class="form-group">
+                        <div
+                          class="input-group date"
+                          id="reservationdate"
+                          data-target-input="nearest">
+                          <input
+                            id="input_date"
+                            type="text"
+                            class="form-control datetimepicker-input"
+                            data-target="#reservationdate"
+                            name="setDate"
+                            value=""
+                            placeholder="<%= date %>" />
+
+                          <div
+                            class="input-group-append"
+                            data-target="#reservationdate"
+                            data-toggle="datetimepicker">
+                            <div class="input-group-text">
+                              <i class="fa fa-calendar"></i>
+                            </div>
+                          </div>
+                          <div class="ml-3">
+                            <button
+                              id="btn_date"
+                              type="button"
+                              class="btn btn-secondary">
+                              Submit
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <!-- /.container-fluid -->
+      </section>
+
+      <!-- Main content -->
+      <section class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-6">
+              <!-- BAR CHART FIELD -->
+              <div class="card card-success">
+                <div
+                  class="card-header"
+                  style="display: flex; justify-content: center">
+                  <h3 class="card-title textModal">FIELD</h3>
+                </div>
+
+                <div
+                  class="card-body chart_id"
+                  data-toggle="modal"
+                  data-target="#modal-xl">
+                  <div class="chart">
+                    <canvas
+                      id="barChart"
+                      style="
+                        min-height: 250px;
+                        height: 250px;
+                        max-height: 250px;
+                        max-width: 100%;
+                      "></canvas>
+                  </div>
+                  <span
+                    style="
+                      padding: 15px 0px 0px 0px;
+                      font-style: italic;
+                      color: red;
+                      opacity: 0.8;
+                      font-size: 10px;
+                    "
+                    >*Lorem ipsum dolor sit amet consectetur adipisicing
+                    elit.</span
+                  >
+                </div>
+                <!-- /.card-body -->
+              </div>
+
+              <!-- /.card -->
+
+              <!-- BAR CHART FIELD VOLTAGE BEFORE TRAFO-->
+              <div class="card card-primary">
+                <div
+                  class="card-header"
+                  style="display: flex; justify-content: center">
+                  <h3 class="card-title textModal">VOLTAGE BEFORE TRAFO</h3>
+                </div>
+
+                <div
+                  class="card-body chart_id"
+                  data-toggle="modal"
+                  data-target="#modal-xl">
+                  <div class="chart">
+                    <canvas
+                      id="voltBeforeTrafoChart"
+                      style="
+                        min-height: 250px;
+                        height: 250px;
+                        max-height: 250px;
+                        max-width: 100%;
+                      "></canvas>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+              <!-- LINE CHART  VOLTAGE AFTER TRAFO-->
+              <div class="card card-info">
+                <div class="card-header">
+                  <h3 class="card-title textModal">VOLTAGE AFTER TRAFO</h3>
+                </div>
+
+                <div class="card-body chart_id">
+                  <div
+                    class="chart"
+                    data-toggle="modal"
+                    data-target="#modal-xl">
+                    <canvas
+                      id="voltAfterTrafoChart"
+                      style="
+                        min-height: 250px;
+                        height: 250px;
+                        max-height: 250px;
+                        max-width: 100%;
+                      "></canvas>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+
+            <!-- /.col (RIGHT) -->
+            <div class="col-md-6">
+              <!-- LINE CHART LOAD AMP-->
+              <div class="card card-info">
+                <div class="card-header">
+                  <h3 class="card-title textModal">LOAD AMP</h3>
+                </div>
+                <div
+                  class="card-body chart_id"
+                  data-toggle="modal"
+                  data-target="#modal-xl">
+                  <div class="chart">
+                    <canvas
+                      id="loadAmpChart"
+                      style="
+                        min-height: 250px;
+                        height: 250px;
+                        max-height: 250px;
+                        max-width: 100%;
+                      "></canvas>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+              <!-- BAR CHART POWER FACTOR -->
+              <div class="card card-success">
+                <div
+                  class="card-header"
+                  style="display: flex; justify-content: center">
+                  <h3 class="card-title textModal">POWER FACTOR</h3>
+                </div>
+
+                <div
+                  class="card-body chart_id"
+                  data-toggle="modal"
+                  data-target="#modal-xl">
+                  <div class="chart">
+                    <canvas
+                      id="powerfactorChart"
+                      style="
+                        min-height: 250px;
+                        height: 250px;
+                        max-height: 250px;
+                        max-width: 100%;
+                      "></canvas>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+              <!-- BAR CHART LOAD MW -->
+              <div class="card card-success">
+                <div
+                  class="card-header"
+                  style="display: flex; justify-content: center">
+                  <h3 class="card-title textModal">LOAD MW</h3>
+                </div>
+
+                <div
+                  class="card-body chart_id"
+                  data-toggle="modal"
+                  data-target="#modal-xl">
+                  <div class="chart">
+                    <canvas
+                      id="loadmwChart"
+                      style="
+                        min-height: 250px;
+                        height: 250px;
+                        max-height: 250px;
+                        max-width: 100%;
+                      "></canvas>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+          </div>
+          <!-- /.row -->
+          <div class="row">
+            <div class="col-md-6">
+              <!-- BAR CHART M VAR -->
+              <div class="card card-success">
+                <div
+                  class="card-header"
+                  style="display: flex; justify-content: center">
+                  <h3 class="card-title textModal">M VAR</h3>
+                </div>
+
+                <div
+                  class="card-body chart_id"
+                  data-toggle="modal"
+                  data-target="#modal-xl">
+                  <div class="chart">
+                    <canvas
+                      id="mvarChart"
+                      style="
+                        min-height: 250px;
+                        height: 250px;
+                        max-height: 250px;
+                        max-width: 100%;
+                      "></canvas>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+              <!-- BAR CHART RECT. TRAFO LIQUID TEMP. -->
+              <div class="card card-success">
+                <div
+                  class="card-header"
+                  style="display: flex; justify-content: center">
+                  <h3 class="card-title textModal">RECT. TRAFO LIQUID TEMP.</h3>
+                </div>
+
+                <div
+                  class="card-body chart_id"
+                  data-toggle="modal"
+                  data-target="#modal-xl">
+                  <div class="chart">
+                    <canvas
+                      id="rectTrafoTempChart"
+                      style="
+                        min-height: 250px;
+                        height: 250px;
+                        max-height: 250px;
+                        max-width: 100%;
+                      "></canvas>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+              <!-- LINE CHART  GEN TRAFO-->
+              <div class="card card-info">
+                <div class="card-header">
+                  <h3 class="card-title textModal">VISUAL CHECK</h3>
+                </div>
+                <div
+                  class="card-body chart_id"
+                  data-toggle="modal"
+                  data-target="#modal-xl">
+                  <div class="chart">
+                    <canvas
+                      id="visualCheckChart"
+                      style="
+                        min-height: 250px;
+                        height: 250px;
+                        max-height: 250px;
+                        max-width: 100%;
+                      "></canvas>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+            <div class="col-md-6">
+              <!-- LINE CHART  GEN TRAFO-->
+              <div class="card card-info">
+                <div class="card-header">
+                  <h3 class="card-title textModal">GEN TRAFO</h3>
+                </div>
+                <div
+                  class="card-body chart_id"
+                  data-toggle="modal"
+                  data-target="#modal-xl">
+                  <div class="chart">
+                    <canvas
+                      id="genTrafoChart"
+                      style="
+                        min-height: 250px;
+                        height: 250px;
+                        max-height: 250px;
+                        max-width: 100%;
+                      "></canvas>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+              <!-- BAR CHART KW HOURS -->
+              <div class="card card-success">
+                <div
+                  class="card-header"
+                  style="display: flex; justify-content: center">
+                  <h3 class="card-title textModal">KW HOURS</h3>
+                </div>
+
+                <div
+                  class="card-body chart_id"
+                  data-toggle="modal"
+                  data-target="#modal-xl">
+                  <div class="chart">
+                    <canvas
+                      id="kwHoursChart"
+                      style="
+                        min-height: 250px;
+                        height: 250px;
+                        max-height: 250px;
+                        max-width: 100%;
+                      "></canvas>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+              <!-- BAR CHART TURBINE SPEED -->
+              <div class="card card-success">
+                <div
+                  class="card-header"
+                  style="display: flex; justify-content: center">
+                  <h3 class="card-title textModal">TURBINE SPEED</h3>
+                </div>
+
+                <div
+                  class="card-body chart_id"
+                  data-toggle="modal"
+                  data-target="#modal-xl">
+                  <div class="chart">
+                    <canvas
+                      id="turbineSpeedChart"
+                      style="
+                        min-height: 250px;
+                        height: 250px;
+                        max-height: 250px;
+                        max-width: 100%;
+                      "></canvas>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <!-- BAR CHART VCE -->
+              <div class="card card-success">
+                <div
+                  class="card-header"
+                  style="display: flex; justify-content: center">
+                  <h3 class="card-title textModal">VCE</h3>
+                </div>
+                <div
+                  class="card-body chart_id"
+                  data-toggle="modal"
+                  data-target="#modal-xl">
+                  <div class="chart">
+                    <canvas
+                      id="VCEChart"
+                      style="
+                        min-height: 250px;
+                        height: 250px;
+                        max-height: 250px;
+                        max-width: 100%;
+                      "></canvas>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+              <!-- BAR CHART GASFLOW -->
+              <div class="card card-success">
+                <div
+                  class="card-header"
+                  style="display: flex; justify-content: center">
+                  <h3 class="card-title textModal">GAS FLOW</h3>
+                </div>
+
+                <div
+                  class="card-body chart_id"
+                  data-toggle="modal"
+                  data-target="#modal-xl">
+                  <div class="chart">
+                    <canvas
+                      id="gasFlowChart"
+                      style="
+                        min-height: 250px;
+                        height: 250px;
+                        max-height: 250px;
+                        max-width: 100%;
+                      "></canvas>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+              <!-- BAR CHART LUBE OIL TANK TEMP -->
+              <div class="card card-success">
+                <div
+                  class="card-header"
+                  style="display: flex; justify-content: center">
+                  <h3 class="card-title textModal">LUBE OIL TANK TEMP</h3>
+                </div>
+
+                <div
+                  class="card-body chart_id"
+                  data-toggle="modal"
+                  data-target="#modal-xl">
+                  <div class="chart">
+                    <canvas
+                      id="lubeoilTankTempChart"
+                      style="
+                        min-height: 250px;
+                        height: 250px;
+                        max-height: 250px;
+                        max-width: 100%;
+                      "></canvas>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+            <div class="col-md-6">
+              <!-- BAR CHART DSP -->
+              <div class="card card-success">
+                <div
+                  class="card-header"
+                  style="display: flex; justify-content: center">
+                  <h3 class="card-title textModal">DSP</h3>
+                </div>
+                <div
+                  class="card-body chart_id"
+                  data-toggle="modal"
+                  data-target="#modal-xl">
+                  <div class="chart">
+                    <canvas
+                      id="DSPChart"
+                      style="
+                        min-height: 250px;
+                        height: 250px;
+                        max-height: 250px;
+                        max-width: 100%;
+                      "></canvas>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+
+              <!-- LINE CHART LUBE OIL TEMPERATURE ( °C )-->
+              <div class="card card-info">
+                <div class="card-header">
+                  <h3 class="card-title textModal">
+                    LUBE OIL TEMPERATURE ( °C )
+                  </h3>
+                </div>
+                <div
+                  class="card-body chart_id"
+                  data-toggle="modal"
+                  data-target="#modal-xl">
+                  <div class="chart">
+                    <canvas
+                      id="lubeOilTempChart"
+                      style="
+                        min-height: 250px;
+                        height: 250px;
+                        max-height: 250px;
+                        max-width: 100%;
+                      "></canvas>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+
+              <!-- BAR CHART LUBE OIL TANK TEMP -->
+              <div class="card card-success">
+                <div
+                  class="card-header"
+                  style="display: flex; justify-content: center">
+                  <h3 class="card-title textModal">LUBE OIL BEARING TEMP</h3>
+                </div>
+
+                <div
+                  class="card-body chart_id"
+                  data-toggle="modal"
+                  data-target="#modal-xl">
+                  <div class="chart">
+                    <canvas
+                      id="lubeoilBearingTempChart"
+                      style="
+                        min-height: 250px;
+                        height: 250px;
+                        max-height: 250px;
+                        max-width: 100%;
+                      "></canvas>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+
+            <div class="col-md-6">
+              <!-- BAR CHART HYD. TRIP CIRCUIT PRESS-->
+              <div class="card card-success">
+                <div
+                  class="card-header"
+                  style="display: flex; justify-content: center">
+                  <h3 class="card-title textModal">HYD. TRIP CIRCUIT PRESS</h3>
+                </div>
+
+                <div
+                  class="card-body chart_id"
+                  data-toggle="modal"
+                  data-target="#modal-xl">
+                  <div class="chart">
+                    <canvas
+                      id="hydTripCircuitPressChart"
+                      style="
+                        min-height: 250px;
+                        height: 250px;
+                        max-height: 250px;
+                        max-width: 100%;
+                      "></canvas>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+              <!-- LINE CHART LUBE OIL PRESS-->
+              <div class="card card-info">
+                <div class="card-header">
+                  <h3 class="card-title textModal">LUBE OIL PRESS</h3>
+                </div>
+                <div
+                  class="card-body chart_id"
+                  data-toggle="modal"
+                  data-target="#modal-xl">
+                  <div class="chart">
+                    <canvas
+                      id="lubeOilPressChart"
+                      style="
+                        min-height: 250px;
+                        height: 250px;
+                        max-height: 250px;
+                        max-width: 100%;
+                      "></canvas>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+              <!-- LINE CHART EXHAUST TEMP ( °C ) -->
+              <div class="card card-info">
+                <div class="card-header">
+                  <h3 class="card-title textModal">EXHAUST TEMP ( °C )</h3>
+                </div>
+                <div
+                  class="card-body chart_id"
+                  data-toggle="modal"
+                  data-target="#modal-xl">
+                  <div class="chart">
+                    <canvas
+                      id="exhaustTempChart"
+                      style="
+                        min-height: 250px;
+                        height: 250px;
+                        max-height: 250px;
+                        max-width: 100%;
+                      "></canvas>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+
+            <div class="col-md-6">
+              <!-- BAR CHART LUBE OIL TANK TEMP -->
+              <div class="card card-success">
+                <div
+                  class="card-header"
+                  style="display: flex; justify-content: center">
+                  <h3 class="card-title textModal">
+                    HYD. OIL PRESS (FOR 63HQ)
+                  </h3>
+                </div>
+                <div
+                  class="card-body chart_id"
+                  data-toggle="modal"
+                  data-target="#modal-xl">
+                  <div class="chart">
+                    <canvas
+                      id="hydOilPressChart"
+                      style="
+                        min-height: 250px;
+                        height: 250px;
+                        max-height: 250px;
+                        max-width: 100%;
+                      "></canvas>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+              <!-- LINE CHART SECOND STAGE WHEEL SPACE TEMPERATURE  °C-->
+              <div class="card card-info">
+                <div class="card-header">
+                  <h3 class="card-title textModal">
+                    SECOND STAGE WHEEL SPACE TEMPERATURE °C
+                  </h3>
+                </div>
+                <div
+                  class="card-body chart_id"
+                  data-toggle="modal"
+                  data-target="#modal-xl">
+                  <div class="chart">
+                    <canvas
+                      id="secondWheelspaceChart"
+                      style="
+                        min-height: 250px;
+                        height: 250px;
+                        max-height: 250px;
+                        max-width: 100%;
+                      "></canvas>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+              <!-- BAR CHART COMP TEMP -->
+              <div class="card card-success">
+                <div
+                  class="card-header"
+                  style="display: flex; justify-content: center">
+                  <h3 class="card-title textModal">COMP TEMP</h3>
+                </div>
+
+                <div
+                  class="card-body chart_id"
+                  data-toggle="modal"
+                  data-target="#modal-xl">
+                  <div class="chart">
+                    <canvas
+                      id="compTempChart"
+                      style="
+                        min-height: 250px;
+                        height: 250px;
+                        max-height: 250px;
+                        max-width: 100%;
+                      "></canvas>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+            <!--  -->
+            <div class="col-md-12">
+              <!-- LINE CHART EXHAUST TEMP ( °C ) -->
+              <div class="card card-info">
+                <div class="card-header">
+                  <h3 class="card-title textModal">
+                    EXHAUST FUEL GAS TEMPERATURE °C
+                  </h3>
+                </div>
+                <div
+                  class="card-body chart_id"
+                  data-toggle="modal"
+                  data-target="#modal-xl">
+                  <div class="chart">
+                    <canvas
+                      id="exhaustFuelGasTempChart"
+                      style="
+                        min-height: 250px;
+                        height: 250px;
+                        max-height: 250px;
+                        max-width: 100%;
+                      "></canvas>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+            <!--  -->
+            <div class="col-md-6">
+              <!-- BAR CHART HYD. TRIP CIRCUIT PRESS-->
+              <div class="card card-success">
+                <div
+                  class="card-header"
+                  style="display: flex; justify-content: center">
+                  <h3 class="card-title textModal">FUEL TEMP</h3>
+                </div>
+
+                <div
+                  class="card-body chart_id"
+                  data-toggle="modal"
+                  data-target="#modal-xl">
+                  <div class="chart">
+                    <canvas
+                      id="fuelTempChart"
+                      style="
+                        min-height: 250px;
+                        height: 250px;
+                        max-height: 250px;
+                        max-width: 100%;
+                      "></canvas>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+            <!--  -->
+            <div class="col-md-6">
+              <!-- LINE CHART EXHAUST TEMP ( °C ) -->
+              <div class="card card-info">
+                <div class="card-header">
+                  <h3 class="card-title textModal">
+                    EXHAUST FUEL GAS TEMPERATURE °C
+                  </h3>
+                </div>
+                <div
+                  class="card-body chart_id"
+                  data-toggle="modal"
+                  data-target="#modal-xl">
+                  <div class="chart">
+                    <canvas
+                      id="fuelGasPressChart"
+                      style="
+                        min-height: 250px;
+                        height: 250px;
+                        max-height: 250px;
+                        max-width: 100%;
+                      "></canvas>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+            <!--  -->
+            <div class="col-md-6">
+              <!-- LINE CHART EXHAUST TEMP ( °C ) -->
+              <div class="card card-info">
+                <div class="card-header">
+                  <h3 class="card-title textModal">COMP. DISC. AIR PRESS</h3>
+                </div>
+                <div
+                  class="card-body chart_id"
+                  data-toggle="modal"
+                  data-target="#modal-xl">
+                  <div class="chart">
+                    <canvas
+                      id="compDisch_AipressChart"
+                      style="
+                        min-height: 250px;
+                        height: 250px;
+                        max-height: 250px;
+                        max-width: 100%;
+                      "></canvas>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+            <!--  -->
+
+            <div class="col-md-6">
+              <!-- LINE CHART diffPressChart -->
+              <div class="card card-info">
+                <div class="card-header">
+                  <h3 class="card-title textModal">DIFF. PRESS</h3>
+                </div>
+                <div
+                  class="card-body chart_id"
+                  data-toggle="modal"
+                  data-target="#modal-xl">
+                  <div class="chart">
+                    <canvas
+                      id="diffPressChart"
+                      style="
+                        min-height: 250px;
+                        height: 250px;
+                        max-height: 250px;
+                        max-width: 100%;
+                      "></canvas>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+
+            <!--  B E N T L Y   V I B R A T I O N  -->
+            <div class="col-md-12">
+              <div class="card card-info">
+                <div class="card-header">
+                  <h3 class="card-title textModal">
+                    BENTLY VIBRATION UN FILTER
+                  </h3>
+                </div>
+                <div
+                  class="card-body chart_id"
+                  data-toggle="modal"
+                  data-target="#modal-xl">
+                  <div class="chart">
+                    <canvas
+                      id="bentlyVibraUnFilterChart"
+                      style="
+                        min-height: 250px;
+                        height: 250px;
+                        max-height: 250px;
+                        max-width: 100%;
+                      "></canvas>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+
+            <!--  -->
+            <div class="col-md-6">
+              <!-- BAR CHART HYD. TRIP CIRCUIT PRESS-->
+              <div class="card card-success">
+                <div
+                  class="card-header"
+                  style="display: flex; justify-content: center">
+                  <h3 class="card-title textModal">COOLING WATER</h3>
+                </div>
+
+                <div
+                  class="card-body chart_id"
+                  data-toggle="modal"
+                  data-target="#modal-xl">
+                  <div class="chart">
+                    <canvas
+                      id="coolingWaterChart"
+                      style="
+                        min-height: 250px;
+                        height: 250px;
+                        max-height: 250px;
+                        max-width: 100%;
+                      "></canvas>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+
+            <!--  -->
+
+            <div class="col-md-6">
+              <!-- LINE CHART seismicVibrationChart -->
+              <div class="card card-info">
+                <div class="card-header">
+                  <h3 class="card-title textModal">SEISMIC VIBRATION</h3>
+                </div>
+                <div
+                  class="card-body chart_id"
+                  data-toggle="modal"
+                  data-target="#modal-xl">
+                  <div class="chart">
+                    <canvas
+                      id="seismicVibrationChart"
+                      style="
+                        min-height: 250px;
+                        height: 250px;
+                        max-height: 250px;
+                        max-width: 100%;
+                      "></canvas>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+          </div>
+          <div class="row"></div>
+        </div>
+        <!-- /.container-fluid -->
+      </section>
+      <!-- /.content -->
+    </div>
+  </div>
+  <%- include ../../modal/modalChart.ejs %>
+</body>
+<!--  -->
+<%- include ../../partials/footer.ejs %>
+<!--  -->
+<%- include ../../partials/js.ejs %>
+<!--  -->
+<%- include ./js_date.ejs %>
+<!--  -->
+
+<!-- <script src="/charts/valueChart.js">
+  console.log("value query", "<%= query %>");
+</script> -->
+
+<script>
+  let getDate = document
+    .getElementById("btn_date")
+    .addEventListener("click", async function () {
+      let inputElement = document.getElementById("input_date");
+      let inputValue = inputElement.value;
+      window.location.href = `?date=${inputValue}`;
+    });
+</script>

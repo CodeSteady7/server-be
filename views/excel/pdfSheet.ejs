@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style-doc.css" />
+  </head>
+  <body>
+    <div style="width: 1230px">
+      <div style="width: 1230px">
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            border: solid;
+            border-width: 1px;
+            align-items: center;
+            position: relative;
+          "
+        >
+          <div>
+            <img src="/images/ic-pertaarungas.png" style="width: 100px" />
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: center">
+            <span style="padding: 3px 0px; font-weight: 700; font-size: 20px;">POWER GENERATION SYSTEM UNIT - 90</span>
+            <span style="padding: 3px 0px; font-weight: 700; font-size: 20px;">PG-9001</span>
+            <span style="padding: 8px 0px 0px 0px; font-weight: 600; font-size: 17px;"> Date : <%= data.queryDate %> </span>
+          </div>
+          <div>
+            <span>PAG-408</span>
+          </div>
+          <div style="position: absolute;
+          right: 9px;
+          bottom: 0px;" >
+            <h5>SHEET : 1 OF 5</h5>
+          </div>
+        </div>
+        <div >
+          <table class="styleBorder" style="width: 1230px">
+            <thead>
+            <tr>
+              <th rowspan="3" style="padding: 50px 10px">Hours</th>
+              <th colspan="2" rowspan="2">Field</th>
+              <th
+                rowspan="2"
+                class="verticalTable"
+              >
+                VOLTAGE BEFORE </br> TRAFO
+              </th>
+              <th colspan="3" rowspan="2">VOLTAGE </br> AFTER TRAFO</th>
+              <th colspan="3" rowspan="2">LOAD (AMP)</th>
+              <th rowspan="3" class="verticalTable">POWER FACTOR</th>
+              <th colspan="2">LOAD (MW)</th>
+              <th colspan="2">M VAR</th>
+              <th colspan="9">TEMPERATURE ( °C )</th>
+              <th colspan="3">GEN TRAFO</th>
+              <th rowspan="3" class="verticalTable">RECT. TRAFO LIQUID TEMP.</th>
+              <th rowspan="3" class="verticalTable">KW HOURS</th>
+              <th colspan="3" rowspan="2">Visual Check</th>
+            </tr>
+            <tr>
+              <th rowspan="2" class="paddingTable verticalTable">METER</th>
+              <th rowspan="2" class="paddingTable verticalTable">RECORD</th>
+              <th rowspan="2" class="paddingTable verticalTable">METER</th>
+              <th rowspan="2" class="paddingTable verticalTable">RECORD</th>
+              <th colspan="3">AIR</th>
+              <th colspan="6">WINDING</th>
+              <th rowspan="2" class="verticalTable">LIQUID LEVEL</th>
+              <th rowspan="2" class="verticalTable">LIQUID TEMP</th>
+              <th rowspan="2" class="verticalTable">WIND. TEMP</th>
+            </tr>
+            <tr>
+              <th class="paddingTable">V</th>
+              <th class="paddingTable">A</th>
+              <th class="paddingTable">V</th>
+              <th class="paddingTable verticalTable">1-2</th>
+              <th class="paddingTable verticalTable">2-3</th>
+              <th class="paddingTable verticalTable">3-1</th>
+              <th class="paddingTable">1</th>
+              <th class="paddingTable">2</th>
+              <th class="paddingTable">3</th>
+         
+              <th class="paddingTable">1</th>
+              <th class="paddingTable">2</th>
+              <th class="paddingTable">3</th>
+              <th class="paddingTable">1</th>
+              <th class="paddingTable">2</th>
+              <th class="paddingTable">3</th>
+              <th class="paddingTable">4</th>
+              <th class="paddingTable">5</th>
+              <th class="paddingTable">6</th>
+              <th class="paddingTable">L/O</th>
+              <th class="paddingTable">Temp.</th>
+              <th class="paddingTable">Sound</th>
+            </tr>
+          </thead>
+            <tbody style="text-align: center;">
+      
+            <!--  -->
+            <% for(let i = 0; i < data.temp.length; i++) { %>
+             
+      
+              <tr>
+              <td><%= data.temp[i].clock %></td>
+              <td><%= data.temp[i].value.get_field[0]?.valueVField%></td>
+              <td><%= data.temp[i].value.get_field[0]?.valueAField%></td>
+              <td><%= data.temp[i].value.get_voltBeforeTrafo[0]?.valueV_BT%></td>
+              <td><%= data.temp[i].value.get_voltAfterTrafo[0]?.valueVolta1_2%></td>
+              <td><%= data.temp[i].value.get_voltAfterTrafo[0]?.valueVolta2_3%></td>
+              <td><%= data.temp[i].value.get_voltAfterTrafo[0]?.valueVolta3_1%></td>
+              <td><%= data.temp[i].value.get_loadamp[0]?.value1Loadamp%></td>
+              <td><%= data.temp[i].value.get_loadamp[0]?.value2Loadamp%></td>
+              <td><%= data.temp[i].value.get_loadamp[0]?.value3Loadamp%></td>
+              <td><%= data.temp[i].value.get_powerfactor[0]?.valuePowerfactor%></td>
+              <td><%= data.temp[i].value.get_loadmw[0]?.valueMeter_loadmw%></td>
+              <td><%= data.temp[i].value.get_loadmw[0]?.valueRecord_loadmw%></td>
+              <td><%= data.temp[i].value.get_mvar[0]?.valueMeter_mvar%></td>
+              <td><%= data.temp[i].value.get_mvar[0]?.valueRecord_mvar%></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td><%= data.temp[i].value.get_genTrafo[0]?.liquid_level%></td>
+              <td><%= data.temp[i].value.get_genTrafo[0]?.liquid_temp%></td>
+              <td><%= data.temp[i].value.get_genTrafo[0]?.wind_temp%></td>
+              <td><%= data.temp[i].value.get_rect_trafo_liquid_temp[0]?.value_tblRect_trafo_liquid_temp%></td>
+              <td><%= data.temp[i].value.get_kw_hours[0]?.value_tblkw_hours%></td>
+              <td><%= data.temp[i].value.get_visual_check[0]?.l_o%></td>
+              <td><%= data.temp[i].value.get_visual_check[0]?.temp%></td>
+              <td><%= data.temp[i].value.get_visual_check[0]?.sound%></td>
+            </tr>
+            <%}%>
+      
+          </tbody>
+        </table>
+      
+        </div>
+        <div style="border: solid; border-width: 1px; display: flex;">
+          <div class="signature" style="position:relative">
+            <span style="position: absolute; top:10px; left:10px">00:00 ~ 08:00</span>
+            <div style="display: flex; justify-content: space-between; padding: 0px 5px; position: absolute; bottom: 0px;" >
+              <h4 style="padding-right: 10px;">Opr.: ____________</h4>
+              <h4>Supv./Panelman : ____________</h4>
+            </div>
+          </div>
+          <div class="signature" style="position:relative">
+            <span style="position: absolute; top:10px; left:10px">08:00 ~ 16:00</span>
+            <div style="display: flex; justify-content: space-between; padding: 0px 5px; position: absolute; bottom: 0px;" >
+              <h4 style="padding-right: 10px;">Opr.: ____________</h4>
+              <h4>Supv./Panelman : ____________</h4>
+            </div>
+          </div>
+          <div class="signature" style="position:relative">
+            <span style="position: absolute; top:10px; left:10px">16:00 ~ 00:00</span>
+            <div style="display: flex; justify-content: space-between; padding: 0px 5px; position: absolute; bottom: 0px;" >
+              <h4 style="padding-right: 10px;">Opr.: ____________</h4>
+              <h4>Supv./Panelman : ____________</h4>
+            </div>
+          </div>
+        </div>
+          <div style="display: flex;
+        justify-content: space-between;
+        margin: 40px 10px 0px 0px;">
+          <a type="button" href="/data" style="font-size: 15px;
+          background-color: #e35a67;
+          padding: 10px 20px;
+          border: none;
+          font-weight: 700;
+          color: white;
+          text-decoration: none;
+          border-radius: 7px;">Back</a>
+          <a type="button" href="/data/getonedata?queryDate=<%= data.queryDate %>&page=2" style="font-size: 15px;
+          background-color: #e35a67;
+          padding: 10px 20px;
+          border: none;
+          font-weight: 700;
+          color: white;
+          text-decoration: none;
+          border-radius: 7px;">Next Page</a>
+        </div>
+        
+      </div>
+    </div>
+  </body>
+</html>

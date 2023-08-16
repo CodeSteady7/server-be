@@ -1,0 +1,326 @@
+<script>
+  $(async function () {
+    // Detail
+
+    let getChart = document.getElementsByClassName("chart_id");
+    let textModal = document.getElementsByClassName("textModal");
+    let setTextModal = document.getElementById("setTextModal");
+    let setModal = document.getElementById("modal_id");
+
+    for (let i = 0; i < getChart.length; i++) {
+      getChart[i].addEventListener("click", (event) => {
+        //
+        history.pushState(null, null, `/charts?${event.target.id}2`);
+        console.log("getChart[i]", event.target.id + `2`);
+        let sPageURL = window.location.search.substring(1);
+
+        setModal.innerHTML = `<div class="card-body">
+                      <div class="chart">
+                        <canvas
+                          id=${sPageURL}
+                          class="setCheckChart"
+                          style="
+                            min-height: 250px;
+                            height: 250px;
+                            max-height: 250px;
+                            max-width: 100%;
+                          "></canvas>
+                      </div>
+                    </div>`;
+
+        // Modal Field
+
+        let fieldChartCanvas2 =
+          document.getElementById("barChart2")?.getContext("2d") ?? false;
+
+        fieldChartCanvas2 == false
+          ? ""
+          : new Chart(fieldChartCanvas2, {
+              type: "bar",
+              data: fieldChartData,
+              options: fieldChartOptions,
+            });
+        // ---
+
+        // Modal Volt Before Chart
+        let voltBefTrafoChartCanvas2 =
+          document.getElementById("voltBeforeTrafoChart2")?.getContext("2d") ??
+          false;
+
+        voltBefTrafoChartCanvas2 == false
+          ? ""
+          : new Chart(voltBefTrafoChartCanvas2, {
+              type: "bar",
+              data: voltBefTrafoChartData,
+              options: voltBefTrafoChartOptions,
+            });
+        // ---
+
+        // Modal Volt After Chart
+        let voltafterChartCanvas2 =
+          document.getElementById("voltAfterTrafoChart2")?.getContext("2d") ??
+          false;
+
+        voltafterChartCanvas2 == false
+          ? ""
+          : new Chart(voltafterChartCanvas2, {
+              type: "line",
+              data: voltafterChartData,
+              options: voltafterChartOptions,
+            });
+        //
+
+        // Modal Load Amp Chart
+
+        let loadampChartCanvas2 =
+          document.getElementById("loadAmpChart2")?.getContext("2d") ?? false;
+
+        loadampChartCanvas2 == false
+          ? ""
+          : new Chart(loadampChartCanvas2, {
+              type: "line",
+              data: loadampChartData,
+              options: loadampChartOptions,
+            });
+        // ----
+
+        // Modal Power Factor Chart
+        let powerfactorChartCanvas2 =
+          document.getElementById("powerfactorChart2")?.getContext("2d") ??
+          false;
+
+        powerfactorChartCanvas2 == false
+          ? ""
+          : new Chart(powerfactorChartCanvas2, {
+              type: "bar",
+              data: powerfactorChartData,
+              options: powerfactorChartOptions,
+            });
+
+        // ---
+
+        // Modal Load MW Chart
+
+        let loadmwChartCanvas2 =
+          document.getElementById("loadmwChart2")?.getContext("2d") ?? false;
+
+        loadmwChartCanvas2 == false
+          ? ""
+          : new Chart(loadmwChartCanvas2, {
+              type: "bar",
+              data: loadmwChartData,
+              options: loadmwChartOptions,
+            });
+        // ---
+
+        // Modal MVar Chart
+        let mvarChartCanvas2 =
+          document.getElementById("mvarChart2")?.getContext("2d") ?? false;
+
+        mvarChartCanvas2 == false
+          ? ""
+          : new Chart(mvarChartCanvas2, {
+              type: "bar",
+              data: mvarChartData,
+              options: mvarChartOptions,
+            });
+        // ---
+
+        // Modal Gen Trafo Chart
+        let genTrafoChartCanvas2 =
+          document.getElementById("genTrafoChart2")?.getContext("2d") ?? false;
+
+        genTrafoChartCanvas2 == false
+          ? ""
+          : new Chart(genTrafoChartCanvas2, {
+              type: "line",
+              data: genTrafo_ChartData,
+              options: genTrafoChartOptions,
+            });
+        // ---
+
+        // Modal RECT. TRAFO LIQUID TEMP.-
+
+        let rectTrafoTempChartCanvas2 =
+          document.getElementById("rectTrafoTempChart2")?.getContext("2d") ??
+          false;
+
+        rectTrafoTempChartCanvas2 == false
+          ? ""
+          : new Chart(rectTrafoTempChartCanvas2, {
+              type: "bar",
+              data: rectTrafoTempChartData,
+              options: rectTrafoTempChartOptions,
+            });
+        // ---
+
+        // Modal KW Hours
+
+        let kwHoursChartCanvas2 =
+          document.getElementById("kwHoursChart2")?.getContext("2d") ?? false;
+
+        kwHoursChartCanvas2 == false
+          ? ""
+          : new Chart(kwHoursChartCanvas2, {
+              type: "bar",
+              data: kwHoursChartData,
+              options: kwHoursChartOptions,
+            });
+        // ---
+
+        // Modal Visual Check
+        let visualCheckChartCanvas2 =
+          document.getElementById("visualCheckChart2")?.getContext("2d") ??
+          false;
+
+        visualCheckChartCanvas2 == false
+          ? ""
+          : new Chart(visualCheckChartCanvas2, {
+              type: "line",
+              data: visualCheck_ChartData,
+              options: visualCheckChartOptions,
+            });
+        // ----
+
+        // Modal Visual Check
+        let turbineSpeedChartCanvas2 =
+          document.getElementById("turbineSpeedChart2")?.getContext("2d") ??
+          false;
+
+        turbineSpeedChartCanvas2 == false
+          ? ""
+          : new Chart(turbineSpeedChartCanvas2, {
+              type: "bar",
+              data: turbineSpeedChartData,
+              options: turbineSpeedChartOptions,
+            });
+        // ----
+
+        // Modal VCE
+        let VCEChartCanvas2 =
+          document.getElementById("VCEChart2")?.getContext("2d") ?? false;
+
+        VCEChartCanvas2 == false
+          ? ""
+          : new Chart(VCEChartCanvas2, {
+              type: "bar",
+              data: VCEChartData,
+              options: VCEChartOptions,
+            });
+
+        // Modal DSP
+        let DSPChartCanvas2 =
+          document.getElementById("DSPChart2")?.getContext("2d") ?? false;
+
+        DSPChartCanvas2 == false
+          ? ""
+          : new Chart(DSPChartCanvas2, {
+              type: "bar",
+              data: DSPChartData,
+              options: DSPChartOptions,
+            });
+        // ----
+
+        // Modal Gas Flow
+        let gasFlowChartCanvas2 =
+          document.getElementById("gasFlowChart2")?.getContext("2d") ?? false;
+
+        gasFlowChartCanvas2 == false
+          ? ""
+          : new Chart(gasFlowChartCanvas2, {
+              type: "bar",
+              data: gasFlowChartData,
+              options: gasFlowChartOptions,
+            });
+        // ---
+
+        // Modal Lube Oil Temperature
+        let lubeOilTempChartCanvas2 =
+          document.getElementById("lubeOilTempChart2")?.getContext("2d") ??
+          false;
+
+        lubeOilTempChartCanvas2 == false
+          ? ""
+          : new Chart(lubeOilTempChartCanvas2, {
+              type: "line",
+              data: lubeOilTemp_ChartData,
+              options: lubeOilTempChartOptions,
+            });
+        // ---
+
+        // Modal Lube Oil Temperature
+        let lubeoilTankTempChartCanvas2 =
+          document.getElementById("lubeoilTankTempChart2")?.getContext("2d") ??
+          false;
+
+        lubeoilTankTempChartCanvas2 == false
+          ? ""
+          : new Chart(lubeoilTankTempChartCanvas2, {
+              type: "bar",
+              data: lubeoilTankTempChartData,
+              options: lubeoilTankTempChartOptions,
+            });
+        // ---
+
+        // Modal Lube Oil Bearing Temperature
+        let lubeoilBearingTempChartCanvas2 =
+          document
+            .getElementById("lubeoilBearingTempChart2")
+            ?.getContext("2d") ?? false;
+
+        lubeoilBearingTempChartCanvas2 == false
+          ? ""
+          : new Chart(lubeoilBearingTempChartCanvas2, {
+              type: "bar",
+              data: lubeoilBearingTempChartData,
+              options: lubeoilBearingTempChartOptions,
+            });
+        // ---
+
+        // Modal Hyd Trip Circuit Press
+        let hydTripCircuitPressChartCanvas2 =
+          document
+            .getElementById("hydTripCircuitPressChart2")
+            ?.getContext("2d") ?? false;
+
+        hydTripCircuitPressChartCanvas2 == false
+          ? ""
+          : new Chart(hydTripCircuitPressChartCanvas2, {
+              type: "bar",
+              data: hydTripCircuitPressChartData,
+              options: hydTripCircuitPressChartOptions,
+            });
+        // ---
+
+        // Modal Hyd Trip Circuit Press
+        let hydOilPressChartCanvas2 =
+          document.getElementById("hydOilPressChart2")?.getContext("2d") ??
+          false;
+
+        hydOilPressChartCanvas2 == false
+          ? ""
+          : new Chart(hydOilPressChartCanvas2, {
+              type: "bar",
+              data: hydOilPressChartData,
+              options: hydOilPressChartOptions,
+            });
+        // ---
+
+        // Modal lubeOilPressChart
+        let lubeOilPressChartCanvas2 =
+          document.getElementById("lubeOilPressChart2")?.getContext("2d") ??
+          false;
+
+        lubeOilPressChartCanvas2 == false
+          ? ""
+          : new Chart(lubeOilPressChartCanvas2, {
+              type: "line",
+              data: lubeOilPress_ChartData,
+              options: lubeOilPressChartOptions,
+            });
+
+        //----------
+      });
+    }
+  });
+</script>
