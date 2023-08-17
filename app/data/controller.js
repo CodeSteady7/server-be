@@ -419,7 +419,7 @@ module.exports = {
             });
             const page = await browser.newPage();
             await page.goto(
-              `http://10.251.150.15:4004//data/getonedata?queryDate=${createdat}&page=1`
+              `http://10.251.150.15:4004/data/getonedata?queryDate=${createdat}&page=1`
             );
             //   await page.goto(
             // `http://localhost:4004/data/getonedata?queryDate=${createdat}&page=1`
