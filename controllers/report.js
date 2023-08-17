@@ -11,11 +11,6 @@ const reportCtrl = {
     try {
       const { imageBase64, title, description } = req.body;
 
-      // console.log(" req.body =>", req.body)
-      // console.log(" req.file =>", req.file)
-      // console.log(" req.files =>", req.files)
-      // console.log(" req.images =>", req.images)
-
       res.status(200).json({ msg: "success" });
     } catch (error) {
       return res.status(500).json({ msg: error.message });
@@ -27,16 +22,9 @@ const reportCtrl = {
       try {
         const { judul, lokasi, deskripsi, status } = req.body;
         const tempPath = req.file;
-        // console.log(
-        // "🚀 ~ file: report.js ~ line 49 ~ img: ~ req.files",
-        // req.files
-        // );
+       
         const tempBody = req.body;
-        // console.log(
-        //   "🚀 ~ file: report.js ~ line 50 ~ img: ~ req.body",
-        //   req.body
-        // );
-        // const targetPath = path.join(__dirname, "./uploads/image.png")
+       
 
         if (req.file) {
           let tmp_path = req.file.path;
@@ -44,12 +32,7 @@ const reportCtrl = {
             req.file.mimetype.split(".")[
               req.file.originalname.split(".").length - 1
             ];
-          // let filename = req.file.filename
-          // let filename = `${req.file.filename}` + "." + originaExt
           let filename = `${req.file.filename}`;
-          // console.log("originaExt", originaExt);
-          // console.log("filename", filename);
-          // console.log("req.file", req.file);
           let target_path = path.resolve(
             config.rootPath,
             `public/data/uploads/${filename}.jpeg`
@@ -57,7 +40,6 @@ const reportCtrl = {
           const src = fs.createReadStream(tmp_path);
           const dest = fs.createWriteStream(target_path);
           src.pipe(dest, { end: false });
-          // console.log("src", src)
 
           src.on("end", async () => {
             try {
@@ -69,10 +51,6 @@ const reportCtrl = {
                 status: "01",
               });
 
-              // console.log("req.body => ", req.body);
-              // console.log("req.files => ", tempPath);
-              // console.log(" => ", tempBody.judul);
-              // console.log("/// ", data);
               res.status(200).json({ data, msg: "success" });
             } catch (error) {
               console.log(error);
