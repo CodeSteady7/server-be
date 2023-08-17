@@ -48,190 +48,10 @@ module.exports = {
       let history = await tbl_historyDate.findAll();
 
       let temp = [];
-      // let setCreatedat = "";
       for (let i = 0; i < history.length; i++) {
         setCreatedat = history[i].length;
-        console.log("=>", history[i].createdAt);
-        let value = [
-          await Field.findAll({
-            where: {
-              createdAt: `${history[i].createdAt}`,
-            },
-          }),
-          await loadAmp.findAll({
-            where: {
-              createdAt: `${history[i].createdAt}`,
-            },
-          }),
-          await loadMW.findAll({
-            where: {
-              createdAt: `${history[i].createdAt}`,
-            },
-          }),
-          await Mvar.findAll({
-            where: {
-              createdAt: `${history[i].createdAt}`,
-            },
-          }),
-          await powerFactor.findAll({
-            where: {
-              createdAt: `${history[i].createdAt}`,
-            },
-          }),
-          await voltAfterTrafo.findAll({
-            where: {
-              createdAt: `${history[i].createdAt}`,
-            },
-          }),
-          await voltBeforeTrafo.findAll({
-            where: {
-              createdAt: `${history[i].createdAt}`,
-            },
-          }),
-          await kw_hours.findAll({
-            where: {
-              createdAt: `${history[i].createdAt}`,
-            },
-          }),
-          await genTrafo.findAll({
-            where: {
-              createdAt: `${history[i].createdAt}`,
-            },
-          }),
-          await rect_trafo_liquid_temp.findAll({
-            where: {
-              createdAt: `${history[i].createdAt}`,
-            },
-          }),
-          await visual_check.findAll({
-            where: {
-              createdAt: `${history[i].createdAt}`,
-            },
-          }),
-
-          //
-          await tbl_dsp.findAll({
-            where: {
-              createdAt: `${history[i].createdAt}`,
-            },
-          }),
-          await tbl_gasflow.findAll({
-            where: {
-              createdAt: `${history[i].createdAt}`,
-            },
-          }),
-          await tbl_lube_oil_temp.findAll({
-            where: {
-              createdAt: `${history[i].createdAt}`,
-            },
-          }),
-          await tbl_turbinspeed.findAll({
-            where: {
-              createdAt: `${history[i].createdAt}`,
-            },
-          }),
-          await tbl_vce.findAll({
-            where: {
-              createdAt: `${history[i].createdAt}`,
-            },
-          }),
-
-          await tbl_lubeoil_bearingtemperature.findAll({
-            where: {
-              createdAt: `${history[i].createdAt}`,
-            },
-          }),
-          await tbl_hvdoil_press.findAll({
-            where: {
-              createdAt: `${history[i].createdAt}`,
-            },
-          }),
-          await tbl_hvdtrip_circuitpress.findAll({
-            where: {
-              createdAt: `${history[i].createdAt}`,
-            },
-          }),
-          await tbl_lubeoil_press.findAll({
-            where: {
-              createdAt: `${history[i].createdAt}`,
-            },
-          }),
-          await tbl_lubeoil_tanktemp.findAll({
-            where: {
-              createdAt: `${history[i].createdAt}`,
-            },
-          }),
-          await tbl_firststage_wheelspace.findAll({
-            where: {
-              createdAt: `${history[i].createdAt}`,
-            },
-          }),
-          await tbl_second_wheelspace.findAll({
-            where: {
-              createdAt: `${history[i].createdAt}`,
-            },
-          }),
-          await tbl_comp_temp.findAll({
-            where: {
-              createdAt: `${history[i].createdAt}`,
-            },
-          }),
-          await tbl_fuel_temp.findAll({
-            where: {
-              createdAt: `${history[i].createdAt}`,
-            },
-          }),
-
-          await tbl_exhaust_flue_gas_temperature.findAll({
-            where: {
-              createdAt: `${history[i].createdAt}`,
-            },
-          }),
-          await tbl_exhaust_temp.findAll({
-            where: {
-              createdAt: `${history[i].createdAt}`,
-            },
-          }),
-          await tbl_fuelgas_press.findAll({
-            where: {
-              createdAt: `${history[i].createdAt}`,
-            },
-          }),
-          await tbl_compdisch_airpress.findAll({
-            where: {
-              createdAt: `${history[i].createdAt}`,
-            },
-          }),
-          await tbl_diffpress.findAll({
-            where: {
-              createdAt: `${history[i].createdAt}`,
-            },
-          }),
-          await tbl_cooling_water.findAll({
-            where: {
-              createdAt: `${history[i].createdAt}`,
-            },
-          }),
-          await tbl_bently_vibr_unfilter.findAll({
-            where: {
-              createdAt: `${history[i].createdAt}`,
-            },
-          }),
-          await tbl_seismic_vibration.findAll({
-            where: {
-              createdAt: `${history[i].createdAt}`,
-            },
-          }),
-        ];
-        temp.push({ value, date: history[i].createdAt });
+        temp.push({ date: history[i].createdAt });
       }
-
-      // const db_signature = await tbl_signatureform.findOne({
-      //   where: { createdat: setCreatedat },
-      // });
-      // console.log("db_signature", db_signature);
-
-      // console.log("temp", temp);
 
       let temp_data = [];
 
@@ -243,17 +63,10 @@ module.exports = {
         return new Date(b) - new Date(a);
       });
 
-      // console.log("temp_data", temp_data);
-      // Menampilkan hasil pengurutan secara descending
-      // for (var i = 0; i < temp_data.length; i++) {
-      // console.log(temp_data[i]);
-      // }
 
       res.render("admin/table.ejs", {
         data: temp_data,
-        // data: temp,
       });
-      // res.status(200).json({ data: temp });
     } catch (err) {
       console.log(err);
     }
@@ -334,9 +147,7 @@ module.exports = {
   getOneData: async (req, res) => {
     try {
       const { queryDate } = req.query;
-      // console.log("queryDate", queryDate);
       const page = req.query.page * 1 || 5;
-      // let createdAtdata = ["2022-09-23", "2022-12-03", "2022-09-25"];
 
       let set_history = [];
       let historyDate = await tbl_historyDate.findAll({
@@ -418,12 +229,12 @@ module.exports = {
               ],
             });
             const page = await browser.newPage();
-            await page.goto(
-              `http://10.251.150.15:4004/data/getonedata?queryDate=${createdat}&page=1`
-            );
-            //   await page.goto(
-            // `http://localhost:4004/data/getonedata?queryDate=${createdat}&page=1`
-            //   );
+            // await page.goto(
+              // `http://10.251.150.15:4004/data/getonedata?queryDate=${createdat}&page=1`
+            // );
+              await page.goto(
+            `http://localhost:4004/data/getonedata?queryDate=${createdat}&page=1`
+              );
             const pdfBuffer = await page.pdf({
               // path: `pdf/LogSheet-${createdat}-${randomNumber}.pdf`,
               format: "Legal",
