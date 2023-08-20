@@ -7,7 +7,6 @@ module.exports = {
       const db_report = await tbl_report.findAll({
         where: { status: "01" },
       });
-      // console.log("object", db_report);
       res.render("admin/view_report.ejs", {
         data: db_report,
       });

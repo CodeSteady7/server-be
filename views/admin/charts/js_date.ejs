@@ -1,6 +1,5 @@
 <script type="module">
   import {
-    myFunction,
     setChartBar,
     setChartLine,
     setAreaChartOptions,
@@ -12,7 +11,6 @@
   $(async function () {
     const GetValueChart = await setGetValueChart(`<%=date%>`);
 
-    // console.log("GetValueChart", GetValueChart);
 
     let data_field = await setChartBar(
       2,

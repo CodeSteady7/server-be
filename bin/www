@@ -6,35 +6,7 @@ const server = http.createServer(app);
 const socketio = require("socket.io");
 const io = socketio(server);
 
-// let interval
-// io.on("connection", socket => {
-// 	socket.emit("FormAPI", "hai")
-// 	console.log("new client connected")
-// 	if (interval) {
-// 		clearInterval(interval)
-// 	}
-// 	interval = setInterval(() => getApiAndEmit(socket), 100)
 
-// 	socket.on("hello", (arg, callback) => {
-// 		console.log(arg)
-// 		callback("got it")
-// 	})
-// 	socket.on("disconnect", () => {
-// 		console.log("Client disconnected")
-// 		clearInterval(interval)
-// 	})
-// })
-
-// const getApiAndEmit = socket => {
-// 	const response = new Date()
-// 	socket.emit("FromAPI", "response")
-// }
-
-// console.log('saya', io)
-
-// io.listen(port)
-// io.on('error', onError)
-// io.on('listening', onListening)
 
 const port = normalizePort(process.env.PORT || "4004");
 app.set("port", port);

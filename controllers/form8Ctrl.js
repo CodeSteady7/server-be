@@ -50,28 +50,10 @@ const form8Ctrl = {
         where: { createdAt: setcreatedAt },
       });
 
-      let checkLastRow = [
-        await tbl_bently_vibr_unfilter.findOne({
-          attributes: ["id"],
-          order: [["id", "DESC"]],
-        }),
-      ];
 
-      let lastRowtbl_form = await tbl_form08.findOne({
-        attributes: ["id_form"],
-        order: [["id_form", "DESC"]],
-      });
-
-      let data = checkLastRow.map((item) => {
-        console.log("item", item.id, lastRowtbl_form.id_form);
-        return item.id == lastRowtbl_form.id_form;
-      });
-
-      let checkInclude = data.includes(false);
 
       const t = await db.sequelize.transaction();
 
-      if (checkInclude == false) {
         try {
           let check =
             checkDate == null || ""
@@ -138,15 +120,7 @@ const form8Ctrl = {
 
           await t.commit();
 
-          console.log(
-            "data",
-            check,
-            gettbl_bently_vibr_unfilter,
-            gettbl_seismic_vibration,
-            postFormID
-          );
           res.status(200).json({
-            check,
             gettbl_bently_vibr_unfilter,
             gettbl_seismic_vibration,
             postFormID,
@@ -156,38 +130,23 @@ const form8Ctrl = {
           console.log(err);
           await t.rollback();
         }
-      } else {
-        return res.status(500).json({ msg: "contact an IT engineer" });
-      }
     } catch (error) {
       return res.status(500).json({ msg: error.message });
     }
   },
 
-  // postFormId08: async (req, res) => {
-  // 	try {
-  // 		const { nameForm, kode_jam } = req.body
-  // 		let body = req.body
-  // 		const postFormID = await tbl_form08.create({
-  // 			nameForm: nameForm,
-  // 			kode_jam: kode_jam,
-  // 		})
-
-  // 		res.status(200).json({ postFormID, msg: "success" })
-  // 	} catch (error) {
-  // 		return res.status(500).json({ msg: error.message })
-  // 	}
-  // },
-
   getForm08params: async (req, res) => {
-    try {
-      const tbl_bently_vibr_unfilters = await tbl_bently_vibr_unfilter.findAll({
-        where: { id: req.params.id },
-      });
 
-      const tbl_seismic_vibrations = await tbl_seismic_vibration.findAll({
-        where: { id: req.params.id },
-      });
+    let { date, clock } = req.query;
+
+    let selector = {
+     where: { createdAt: date, kode_jam: clock },
+    };
+
+    try {
+      const tbl_bently_vibr_unfilters = await tbl_bently_vibr_unfilter.findOne(selector);
+
+      const tbl_seismic_vibrations = await tbl_seismic_vibration.findOne(selector);
 
       res.status(200).json({
         tbl_bently_vibr_unfilters,

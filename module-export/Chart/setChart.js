@@ -1,6 +1,4 @@
-export function myFunction() {
-  return "testing";
-}
+
 
 export const setChartBar = async (
   value,
@@ -1001,7 +999,6 @@ export const setGetValueChart = async (date) => {
       setData = data;
     });
 
-  console.log("setData", setData.data.length);
 
   // -----------------------------------------------------
   let setClock = [];
@@ -1156,7 +1153,6 @@ export const setGetValueChart = async (date) => {
   let value_gen_BrgCasing = [];
 
   for (let i = 0; i < setData.data.length; i++) {
-    // console.log("setData.Length", setData.data[i]);
 
     setClock.push(setData.data[i].clock);
 
@@ -1824,13 +1820,11 @@ export const setGetValueChart = async (date) => {
         : setData.data[i].value.get_tbl_seismic_vibration[0]?.gen_BrgCasing
     );
 
-    // console.log("object", value_for96cd);
   }
 
   let tempVibra = [2, 8, 12];
   let indexVibra = tempVibra.map((i) => setClock[i]);
 
-  console.log("clock", indexVibra);
   return {
     setClock,
     indexVibra,

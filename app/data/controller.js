@@ -74,7 +74,7 @@ module.exports = {
   indexSignature: async (req, res) => {
     try {
       const { createdat } = req.params;
-      console.log("req.params, index", createdat);
+      // console.log("req.params, index", createdat);
       // let db_historyDate = await tbl_historyDate.findOne({
       //   where: { createdat: createdat },
       // });
@@ -209,9 +209,9 @@ module.exports = {
   excel: async (req, res) => {
     try {
       const { createdat } = req.query;
-      console.log("req.query", req.query);
-      console.log("req.params", createdat);
-      console.log("req logic", createdat !== null || undefined || "");
+      // console.log("req.query", req.query);
+      // console.log("req.params", createdat);
+      // console.log("req logic", createdat !== null || undefined || "");
 
       let min = 1;
       let max = 100;
@@ -229,12 +229,12 @@ module.exports = {
               ],
             });
             const page = await browser.newPage();
-            // await page.goto(
-              // `http://10.251.150.15:4004/data/getonedata?queryDate=${createdat}&page=1`
-            // );
-              await page.goto(
-            `http://localhost:4004/data/getonedata?queryDate=${createdat}&page=1`
-              );
+            await page.goto(
+              `http://10.251.150.15:4004/data/getonedata?queryDate=${createdat}&page=1`
+            );
+            //   await page.goto(
+            // `http://localhost:4004/data/getonedata?queryDate=${createdat}&page=1`
+            //   );
             const pdfBuffer = await page.pdf({
               // path: `pdf/LogSheet-${createdat}-${randomNumber}.pdf`,
               format: "Legal",

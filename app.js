@@ -12,6 +12,7 @@ const methodOverride = require("method-override");
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const fromRouter = require("./routes/form");
+const logicRouter = require("./routes/logic");
 //
 const dashboardRouter = require("./app/dashboard/router");
 const dataRouter = require("./app/data/router");
@@ -84,6 +85,7 @@ app.use(
 app.use("/", authRouter);
 app.use("/users", usersRouter);
 app.use("/form", fromRouter);
+app.use("/logic", logicRouter);
 
 // view engine
 app.use("/dashboard", dashboardRouter);

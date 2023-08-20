@@ -4,13 +4,14 @@ let { temp_ } = require("../data/control_getonedata");
 module.exports = {
   getIndexDate: async (req, res) => {
     try {
-      let startDate = "2022-09-23";
       const { date } = req.query;
       let check;
 
-      // let testing = date ? "false" : "2022-09-23";
 
-      check = await temp_(date ? date : startDate);
+      if (date == undefined || date == '') {
+      }else {
+        check = await temp_(date ? date : '');
+      }
 
       res.status(200).json({ data: check });
     } catch (err) {
@@ -35,43 +36,20 @@ module.exports = {
   //
   index: async (req, res) => {
     try {
-      console.log("req =>", req.body);
       let startDate = "2022-09-24";
       const { date } = req.query;
+      console.log('date ==>', date);
       let query = "";
-
       let check;
-      check = await temp_(date === "" ? `${startDate}` : date);
-      let chartField = (setClock, setValueV_Field, setValueA_Field) => ({
-        labels: setClock,
-        datasets: [
-          {
-            label: "V",
-            backgroundColor: "rgba(60,141,188,0.9)",
-            borderColor: "rgba(60,141,188,0.8)",
-            pointRadius: false,
-            pointColor: "#3b8bba",
-            pointStrokeColor: "rgba(60,141,188,1)",
-            pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(60,141,188,1)",
-            data: setValueV_Field,
-          },
-          {
-            label: "A",
-            backgroundColor: "rgba(210, 214, 222, 1)",
-            borderColor: "rgba(210, 214, 222, 1)",
-            pointRadius: false,
-            pointColor: "rgba(210, 214, 222, 1)",
-            pointStrokeColor: "#c1c7d1",
-            pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(220,220,220,1)",
-            data: setValueA_Field,
-          },
-        ],
-      });
+      // check = await temp_(date === "" ? `` : date);\
+      if (date == undefined || date == '') {
+        // check = await temp_(date === "" ? `${startDate}` : date);
+      } else {
+        // check = await temp_(date === "" ? `${startDate}` : date);
+      }
+     
       let setChart = "true";
 
-      console.log("setParams", req.query);
       let setParams = req.query;
       res.render("admin/charts/view_charts", {
         setChart,
@@ -79,7 +57,7 @@ module.exports = {
         valuesdata: check,
         query,
         date,
-        chartField,
+        // chartField,
       });
     } catch (err) {
       console.log(err);
