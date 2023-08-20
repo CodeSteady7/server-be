@@ -36,18 +36,11 @@ module.exports = {
   //
   index: async (req, res) => {
     try {
-      let startDate = "2022-09-24";
       const { date } = req.query;
       console.log('date ==>', date);
       let query = "";
       let check;
-      // check = await temp_(date === "" ? `` : date);\
-      if (date == undefined || date == '') {
-        // check = await temp_(date === "" ? `${startDate}` : date);
-      } else {
-        // check = await temp_(date === "" ? `${startDate}` : date);
-      }
-     
+      
       let setChart = "true";
 
       let setParams = req.query;
@@ -57,29 +50,21 @@ module.exports = {
         valuesdata: check,
         query,
         date,
-        // chartField,
       });
     } catch (err) {
       console.log(err);
     }
   },
 
-  getIndexDateDetail: async (req, res) => {
-    try {
-      const startDate = req.params;
-      let check = await temp_(startDate);
+  // getIndexDateDetail: async (req, res) => {
+  //   try {
+  //     const startDate = req.params;
+  //     let check = await temp_(startDate);
 
-      res.status(200).json({ data: check });
-    } catch (err) {
-      console.log(err);
-    }
-  },
+  //     res.status(200).json({ data: check });
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // },
 };
 
-// let check = await Field.findAll({
-//   where: {
-//     createdAt: {
-//       [Op.between]: [`${startDate}`, `${endDate}`],
-//     },
-//   },
-// });

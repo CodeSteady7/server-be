@@ -229,12 +229,12 @@ module.exports = {
               ],
             });
             const page = await browser.newPage();
-            await page.goto(
-              `http://10.251.150.15:4004/data/getonedata?queryDate=${createdat}&page=1`
-            );
-            //   await page.goto(
-            // `http://localhost:4004/data/getonedata?queryDate=${createdat}&page=1`
-            //   );
+            // await page.goto(
+              // `http://10.251.150.15:4004/data/getonedata?queryDate=${createdat}&page=1`
+            // );
+              await page.goto(
+            `http://localhost:4004/data/getonedata?queryDate=${createdat}&page=1`
+              );
             const pdfBuffer = await page.pdf({
               // path: `pdf/LogSheet-${createdat}-${randomNumber}.pdf`,
               format: "Legal",
