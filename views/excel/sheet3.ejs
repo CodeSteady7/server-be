@@ -26,8 +26,6 @@
   <div class="size-layout-body-pages">
     <% let indexArraySheetThree_temp = indexArraySheetThree.map((i) => data.temp[i]) %>
    
-    <!-- <%= console.log('indexArraySheetThree_temp', indexArraySheetThree_temp) %> -->
- 
  <table style="width: 100%;
    height: 50%;" >
       <thead class="thread-pages">
@@ -108,32 +106,32 @@
 
         <tr>
           <td><%= indexArraySheetThree_temp[i].clock %></td>
-          <td><%= data.temp[i].value.get_tbl_firststage_wheelspace[0]?.value_first_fwd2 %></td>
-          <td><%= data.temp[i].value.get_tbl_firststage_wheelspace[0]?.value_first_fwd3 %></td>
+          <td><%= indexArraySheetThree_temp[i].value.get_tbl_firststage_wheelspace[0]?.value_first_fwd2 %></td>
+          <td><%= indexArraySheetThree_temp[i].value.get_tbl_firststage_wheelspace[0]?.value_first_fwd3 %></td>
           <td></td>
           <td></td>
-          <td><%= data.temp[i].value.get_tbl_firststage_wheelspace[0]?.value_first_afd2 %></td>
-          <td><%= data.temp[i].value.get_tbl_firststage_wheelspace[0]?.value_first_afd3 %></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td><%= data.temp[i].value.get_tbl_second_wheelspace[0]?.value_second_fwd2 %></td>
-          <td><%= data.temp[i].value.get_tbl_second_wheelspace[0]?.value_second_fwd3 %></td>
-          <td></td>
-          <td></td>
-          <td><%= data.temp[i].value.get_tbl_second_wheelspace[0]?.value_second_aft1 %></td>
-          <td><%= data.temp[i].value.get_tbl_second_wheelspace[0]?.value_second_aft2 %></td>
+          <td><%= indexArraySheetThree_temp[i].value.get_tbl_firststage_wheelspace[0]?.value_first_afd2 %></td>
+          <td><%= indexArraySheetThree_temp[i].value.get_tbl_firststage_wheelspace[0]?.value_first_afd3 %></td>
           <td></td>
           <td></td>
           <td></td>
+          <td><%= indexArraySheetThree_temp[i].value.get_tbl_second_wheelspace[0]?.value_second_fwd2 %></td>
+          <td><%= indexArraySheetThree_temp[i].value.get_tbl_second_wheelspace[0]?.value_second_fwd3 %></td>
           <td></td>
-          <td><%= data.temp[i].value.get_tbl_comp_temp[0]?.value_discharge_anulr %></td>
           <td></td>
-          <td><%= data.temp[i].value.get_tbl_comp_temp[0]?.value_inletair %></td>
-          <td><%= data.temp[i].value.get_tbl_exhaust_temp[0]?.value_1_exhaustTemp %></td>
-          <td><%= data.temp[i].value.get_tbl_exhaust_temp[0]?.value_2_exhaustTemp %></td>
-          <td><%= data.temp[i].value.get_tbl_exhaust_temp[0]?.value_3_exhaustTemp %></td>
-          <td><%= data.temp[i].value.get_tbl_exhaust_temp[0]?.value_4_exhaustTemp %></td>
+          <td><%= indexArraySheetThree_temp[i].value.get_tbl_second_wheelspace[0]?.value_second_aft1 %></td>
+          <td><%= indexArraySheetThree_temp[i].value.get_tbl_second_wheelspace[0]?.value_second_aft2 %></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><%= indexArraySheetThree_temp[i].value.get_tbl_comp_temp[0]?.value_discharge_anulr %></td>
+          <td></td>
+          <td><%= indexArraySheetThree_temp[i].value.get_tbl_comp_temp[0]?.value_inletair %></td>
+          <td><%= indexArraySheetThree_temp[i].value.get_tbl_exhaust_temp[0]?.value_1_exhaustTemp %></td>
+          <td><%= indexArraySheetThree_temp[i].value.get_tbl_exhaust_temp[0]?.value_2_exhaustTemp %></td>
+          <td><%= indexArraySheetThree_temp[i].value.get_tbl_exhaust_temp[0]?.value_3_exhaustTemp %></td>
+          <td><%= indexArraySheetThree_temp[i].value.get_tbl_exhaust_temp[0]?.value_4_exhaustTemp %></td>
         </tr>
         <%}%>
       </tbody>
@@ -213,31 +211,31 @@
         <tr>
           <!-- <td><%= data.temp[i].clock %></td> -->
           <td><%= indexArraySheetThree_temp[i].clock %></td>
-          <td><%= data.temp[i].value.get_tbl_exhaust_flue_gas_temperature[0]?.value_5_exhaustFluegas %></td>
-          <td><%= data.temp[i].value.get_tbl_exhaust_flue_gas_temperature[0]?.value_6_exhaustFluegas %></td>
-          <td><%= data.temp[i].value.get_tbl_exhaust_flue_gas_temperature[0]?.value_7_exhaustFluegas %></td>
-          <td><%= data.temp[i].value.get_tbl_exhaust_flue_gas_temperature[0]?.value_8_exhaustFluegas %></td>
-          <td><%= data.temp[i].value.get_tbl_exhaust_flue_gas_temperature[0]?.value_9_exhaustFluegas %></td>
-          <td><%= data.temp[i].value.get_tbl_exhaust_flue_gas_temperature[0]?.value_10_exhaustFluegas %></td>
-          <td><%= data.temp[i].value.get_tbl_exhaust_flue_gas_temperature[0]?.value_11_exhaustFluegas %></td>
-          <td><%= data.temp[i].value.get_tbl_exhaust_flue_gas_temperature[0]?.value_12_exhaustFluegas %></td>
+          <td><%= indexArraySheetThree_temp[i].value.get_tbl_exhaust_flue_gas_temperature[0]?.value_5_exhaustFluegas %></td>
+          <td><%= indexArraySheetThree_temp[i].value.get_tbl_exhaust_flue_gas_temperature[0]?.value_6_exhaustFluegas %></td>
+          <td><%= indexArraySheetThree_temp[i].value.get_tbl_exhaust_flue_gas_temperature[0]?.value_7_exhaustFluegas %></td>
+          <td><%= indexArraySheetThree_temp[i].value.get_tbl_exhaust_flue_gas_temperature[0]?.value_8_exhaustFluegas %></td>
+          <td><%= indexArraySheetThree_temp[i].value.get_tbl_exhaust_flue_gas_temperature[0]?.value_9_exhaustFluegas %></td>
+          <td><%= indexArraySheetThree_temp[i].value.get_tbl_exhaust_flue_gas_temperature[0]?.value_10_exhaustFluegas %></td>
+          <td><%= indexArraySheetThree_temp[i].value.get_tbl_exhaust_flue_gas_temperature[0]?.value_11_exhaustFluegas %></td>
+          <td><%= indexArraySheetThree_temp[i].value.get_tbl_exhaust_flue_gas_temperature[0]?.value_12_exhaustFluegas %></td>
           <td></td>
-          <td><%= data.temp[i].value.get_tbl_exhaust_flue_gas_temperature[0]?.value_AVETX_exhaustFluegas %></td>
-          <td><%= data.temp[i].value.get_tbl_exhaust_flue_gas_temperature[0]?.value_T1_exhaustFluegas %></td>
-          <td><%= data.temp[i].value.get_tbl_exhaust_flue_gas_temperature[0]?.value_T2_exhaustFluegas %></td>
-          <td><%= data.temp[i].value.get_tbl_exhaust_flue_gas_temperature[0]?.value_T3_exhaustFluegas %></td>
-          <td><%= data.temp[i].value.get_tbl_exhaust_flue_gas_temperature[0]?.value_T4_exhaustFluegas %></td>
-          <td><%= data.temp[i].value.get_tbl_exhaust_flue_gas_temperature[0]?.value_T5_exhaustFluegas %></td>
-          <td><%= data.temp[i].value.get_tbl_exhaust_flue_gas_temperature[0]?.value_T6_exhaustFluegas %></td>
-          <td></td>
-          <td></td>
+          <td><%= indexArraySheetThree_temp[i].value.get_tbl_exhaust_flue_gas_temperature[0]?.value_AVETX_exhaustFluegas %></td>
+          <td><%= indexArraySheetThree_temp[i].value.get_tbl_exhaust_flue_gas_temperature[0]?.value_T1_exhaustFluegas %></td>
+          <td><%= indexArraySheetThree_temp[i].value.get_tbl_exhaust_flue_gas_temperature[0]?.value_T2_exhaustFluegas %></td>
+          <td><%= indexArraySheetThree_temp[i].value.get_tbl_exhaust_flue_gas_temperature[0]?.value_T3_exhaustFluegas %></td>
+          <td><%= indexArraySheetThree_temp[i].value.get_tbl_exhaust_flue_gas_temperature[0]?.value_T4_exhaustFluegas %></td>
+          <td><%= indexArraySheetThree_temp[i].value.get_tbl_exhaust_flue_gas_temperature[0]?.value_T5_exhaustFluegas %></td>
+          <td><%= indexArraySheetThree_temp[i].value.get_tbl_exhaust_flue_gas_temperature[0]?.value_T6_exhaustFluegas %></td>
           <td></td>
           <td></td>
           <td></td>
           <td></td>
           <td></td>
           <td></td>
-          <td><%= data.temp[i].value.get_tbl_fuel_temp[0]?.value_fuel_temp %></td>
+          <td></td>
+          <td></td>
+          <td><%= indexArraySheetThree_temp[i].value.get_tbl_fuel_temp[0]?.value_fuel_temp %></td>
           <td></td>
         </tr>
         <%}%>

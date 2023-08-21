@@ -172,6 +172,7 @@ module.exports = {
       indexArray = [2, 8, 12];
       indexArraySheetThree = [2, 4, 6, 8, 10, 12];
 
+      // console.log('indexArraySheetThree_temp', temp);
       res.render("excel/index", {
         checkDate,
         indexArray,
