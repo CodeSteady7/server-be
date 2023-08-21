@@ -197,7 +197,6 @@ module.exports = {
     try {
       const page = req.query.page * 1 || 5;
 
-      console.log();
       res.status(200).json({
         page,
       });
@@ -209,9 +208,6 @@ module.exports = {
   excel: async (req, res) => {
     try {
       const { createdat } = req.query;
-      // console.log("req.query", req.query);
-      // console.log("req.params", createdat);
-      // console.log("req logic", createdat !== null || undefined || "");
 
       let min = 1;
       let max = 100;

@@ -183,7 +183,7 @@ const form1Ctrl = {
     await t.rollback();
    }
   } catch (error) {
-   console.log("firstErr", error);
+   console.log("err", error);
    return res.status(500).json({ msg: error.message });
   }
  },

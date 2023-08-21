@@ -3,7 +3,6 @@ const { tbl_report, tbl_historyReport } = require("../../models");
 module.exports = {
   index: async (req, res) => {
     try {
-      // let isName = "hai";
       const db_report = await tbl_report.findAll({
         where: { status: "01" },
       });
@@ -38,7 +37,6 @@ module.exports = {
       let selector = {
         where: { id: id },
       };
-      console.log("==>", id);
       await tbl_report.update(
         {
           status: "03",
@@ -55,7 +53,6 @@ module.exports = {
   actionDelete: async (req, res) => {
     try {
       const { id } = req.params;
-      console.log("object", id);
       await tbl_report.destroy({
         where: { id: id },
       });
@@ -106,9 +103,7 @@ module.exports = {
           }
         );
 
-        console.log(
-          ` msg: Success, data: { ${db_historyReport}, ${db_report} }`
-        );
+      
         res.redirect("/report");
         // res
         //   .status(200)

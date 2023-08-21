@@ -283,7 +283,6 @@ const temp_ = async (queryDate) => {
       },
     });
   }
-  // console.log("object => ", temp);
   return temp;
 };
 

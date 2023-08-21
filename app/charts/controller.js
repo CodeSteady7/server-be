@@ -37,7 +37,6 @@ module.exports = {
   index: async (req, res) => {
     try {
       const { date } = req.query;
-      console.log('date ==>', date);
       let query = "";
       let check;
       
