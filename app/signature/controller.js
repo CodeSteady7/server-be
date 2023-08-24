@@ -57,7 +57,7 @@ module.exports = {
 
    res.redirect("/signature");
   } catch (err) {
-   req.flash("alertMessage", `${$err.message}`);
+   req.flash("alertMessage", `${err.message}`);
    console.log("err", err);
   }
  },

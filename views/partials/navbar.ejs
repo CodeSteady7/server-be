@@ -15,9 +15,22 @@
       <a class="nav-link" data-toggle="dropdown" href="#"> Ikhsan </a>
       <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
         <div class="dropdown-divider"></div>
-        <a href="/logout" class="dropdown-item"> Logout </a>
+        <a onclick="logoutAction()" href="/" class="dropdown-item"> Logout </a>
       </div>
     </li>
   </ul>
 </nav>
 <!-- /.navbar -->
+
+<script>
+
+  function logoutAction() {
+    fetch('/logout', {
+      method: 'GET',
+      headers: {'Content-Type': 'application/json'},
+    }).then( data => {
+      location.reload();
+    })
+  }
+
+</script>
