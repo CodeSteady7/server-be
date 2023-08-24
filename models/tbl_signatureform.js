@@ -12,40 +12,34 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
       },
       operation_name_signature01: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
       },
       suprv_name_signature01: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
       },
       range_date01: {
         type: DataTypes.STRING,
         defaultValue: "00:00 - 08:00",
       },
       operation_name_signature02: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
       },
       suprv_name_signature02: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
       },
       range_date02: {
         type: DataTypes.STRING,
         defaultValue: "08:00 - 16:00",
       },
       operation_name_signature03: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
       },
       suprv_name_signature03: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
       },
       range_date03: {
         type: DataTypes.STRING,
         defaultValue: "16:00 - 00:00",
-      },
-      operation_img_signature: {
-        type: DataTypes.STRING,
-      },
-      suprv_img_signature: {
-        type: DataTypes.STRING,
       },
       createdat: {
         type: DataTypes.DATEONLY,

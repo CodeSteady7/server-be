@@ -8,6 +8,9 @@
   <section class="content">
     <div class="container-fluid">
       <!-- SELECT2 EXAMPLE -->
+      <div class="row" style="padding: 15px 10px; justify-content: end;">
+        <a href="/signature/add-user" type="button" class="btn btn-primary" type="submit">Add Signature</a>
+      </div>
       <div class="card card-default">
         <div class="card-header">
           <h3 class="card-title">Data Tanggal <%=data.createdat%></h3>
@@ -36,9 +39,15 @@
                     style="width: 100%"
                     name="operation_name_signature01">
                     <option selected="selected">
-                      <%=data.db_signature.operation_name_signature01%>
+                      <% for(let i = 0; i < user_signature.length; i++ ) { 
+                        if( user_signature[i].user_signature_id == data.db_signature.operation_name_signature01) {  %>
+                          <%= user_signature[i].username %>
+                      <%} } %>
                     </option>
-                    <%- include ./selectUser.ejs %>
+                    <% for(let i = 0; i < user_signature.length; i++ ) { 
+                      if( user_signature[i].position_id == 1) { %>
+                      <option value="<%= user_signature[i].user_signature_id %>"><%= user_signature[i].username %></option>
+                    <% }} %>
                   </select>
                 </div>
               </div>
@@ -50,9 +59,17 @@
                     style="width: 100%"
                     name="suprv_name_signature01">
                     <option selected="selected">
-                      <%=data.db_signature.suprv_name_signature01%>
+
+                      <% for(let i = 0; i < user_signature.length; i++ ) { 
+                        if( user_signature[i].user_signature_id == data.db_signature.suprv_name_signature01) {  %>
+                          <%= user_signature[i].username %>
+                      <%} } %>
+
                     </option>
-                    <%- include ./selectUser.ejs %>
+                    <% for(let i = 0; i < user_signature.length; i++ ) { 
+                      if( user_signature[i].position_id == 2) { %>
+                      <option value="<%= user_signature[i].user_signature_id %>"><%= user_signature[i].username %></option>
+                    <% }} %>
                   </select>
                 </div>
               </div>
@@ -77,9 +94,16 @@
                     style="width: 100%"
                     name="operation_name_signature02">
                     <option selected="selected">
-                      <%=data.db_signature.operation_name_signature02%>
+                      <% for(let i = 0; i < user_signature.length; i++ ) { 
+                        if( user_signature[i].user_signature_id == data.db_signature.operation_name_signature02) {  %>
+                          <%= user_signature[i].username %>
+                      <%} } %>
+
                     </option>
-                    <%- include ./selectUser.ejs %>
+                    <% for(let i = 0; i < user_signature.length; i++ ) { 
+                      if( user_signature[i].position_id == 1) { %>
+                      <option value="<%= user_signature[i].user_signature_id %>"><%= user_signature[i].username %></option>
+                    <% }} %>
                   </select>
                 </div>
               </div>
@@ -91,9 +115,15 @@
                     style="width: 100%"
                     name="suprv_name_signature02">
                     <option selected="selected">
-                      <%=data.db_signature.suprv_name_signature02%>
+                      <% for(let i = 0; i < user_signature.length; i++ ) { 
+                        if( user_signature[i].user_signature_id == data.db_signature.suprv_name_signature02) {  %>
+                          <%= user_signature[i].username %>
+                      <%} } %>
                     </option>
-                    <%- include ./selectUser.ejs %>
+                    <% for(let i = 0; i < user_signature.length; i++ ) { 
+                      if( user_signature[i].position_id == 2) { %>
+                      <option value="<%= user_signature[i].user_signature_id %>"><%= user_signature[i].username %></option>
+                    <% }} %>
                   </select>
                 </div>
               </div>
@@ -118,9 +148,17 @@
                     style="width: 100%"
                     name="operation_name_signature03">
                     <option selected="selected">
-                      <%=data.db_signature.operation_name_signature03%>
+
+                      <% for(let i = 0; i < user_signature.length; i++ ) { 
+                        if( user_signature[i].user_signature_id == data.db_signature.operation_name_signature03) {  %>
+                          <%= user_signature[i].username %>
+                      <%} } %>
+
                     </option>
-                    <%- include ./selectUser.ejs %>
+                    <% for(let i = 0; i < user_signature.length; i++ ) { 
+                      if( user_signature[i].position_id == 1) { %>
+                      <option value="<%= user_signature[i].user_signature_id %>"><%= user_signature[i].username %></option>
+                    <% }} %>
                   </select>
                 </div>
               </div>
@@ -132,9 +170,17 @@
                     style="width: 100%"
                     name="suprv_name_signature03">
                     <option selected="selected">
-                      <%=data.db_signature.suprv_name_signature03%>
+                      
+                      <% for(let i = 0; i < user_signature.length; i++ ) { 
+                        if( user_signature[i].user_signature_id == data.db_signature.suprv_name_signature03) {  %>
+                          <%= user_signature[i].username %>
+                      <%} } %>
+
                     </option>
-                    <%- include ./selectUser.ejs %>
+                    <% for(let i = 0; i < user_signature.length; i++ ) { 
+                      if( user_signature[i].position_id == 2) { %>
+                      <option value="<%= user_signature[i].user_signature_id %>"><%= user_signature[i].username %></option>
+                    <% }} %>
                   </select>
                 </div>
               </div>

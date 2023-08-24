@@ -1,0 +1,88 @@
+<%- include ../../partials/header.ejs %>
+<!--  -->
+<%- include ../../partials/navbar.ejs %>
+<!--  -->
+<%- include ../../partials/sidebar.ejs %>
+<!--  -->
+
+ <!-- Content Wrapper. Contains page content -->
+ <div class="content-wrapper" style="padding: 30px 15px;">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>Signature Add</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="/dashboard">Home</a></li>
+            <li class="breadcrumb-item"><a href="/signature">Signature</a></li>
+            <li class="breadcrumb-item active">Signature Add</li>
+          </ol>
+        </div>
+      </div>
+    </div><!-- /.container-fluid -->
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-primary">
+          <div class="card-header">
+            <h3 class="card-title"></h3>
+          </div>
+
+          <form action="<%= data?.user_signature_id ? '/signature/add-user/' + data?.user_signature_id + '?_method=PUT' : '/signature/add-user' %>" method="POST">
+          <div class="card-body">
+            <div class="form-group">
+              <label for="username">Nama Lengkap</label>
+              <input type="text" id="username" name="username" class="form-control" value="<%= data?.username %>">
+            </div>
+            <div class="form-group">
+              <label for="username">Nomor Pekerja</label>
+              <input type="number" id="nopek" name="nopek" class="form-control" value="<%= data?.nopek %>" >
+            </div>
+            <div class="form-group">
+              <label for="inputStatus">Fungsi</label>
+              <select id="inputStatus" class="form-control custom-select" name="fungsi">
+                <option selected   <%= data?.fungsi_id || "disabled" %> > <%= data?.fungsi_id || "-- Select Fungsi --" %> </option>
+                <option value="1">Technical</option>
+                <option value="1">Operation</option>
+                <option value="1">Maintanance</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="inputStatus">Position</label>
+              <select id="inputStatus" class="form-control custom-select" name="position">
+                <option selected disabled> <%= data?.position_id || "-- Select Position --" %></option>
+                <option value="1">Operator</option>
+                <option value="2">Supv./Panelman</option>
+              </select>
+            </div>
+            <div class="row">
+              <div class="col-12" >
+                <button type="submit" class="btn btn-primary float-right">Submit</button>
+              </div>
+             
+            </div>
+          </div>
+          <!-- /.card-body -->
+        </form>
+        </div>
+        <!-- /.card -->
+      </div>
+    </div>
+  </section>
+  <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+<!--  -->
+<%- include ../../partials/footer.ejs %>
+<!--  -->
+<%- include ../../partials/js.ejs %>
+
+<%- include ../../partials/message.ejs %>
+

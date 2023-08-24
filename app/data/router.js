@@ -11,10 +11,12 @@ const {
 } = require("./controller");
 
 router.get("/", getAllData);
-router.get("/signature/:createdat", indexSignature);
-router.put("/signature/:createdat", actionSignature);
 router.get("/getonedata", getOneData);
 router.get("/download", excel);
 router.post("/getonedata", paginatePage);
+
+router.put("/signature/:createdat", actionSignature);
+router.get("/signature/:createdat", indexSignature);
+
 
 module.exports = router;

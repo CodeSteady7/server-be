@@ -8,18 +8,23 @@ const logger = require("morgan");
 const cors = require("cors");
 const session = require("express-session");
 const methodOverride = require("method-override");
+const flash = require('connect-flash');
 
+// route API mobile 
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const fromRouter = require("./routes/form");
 const logicRouter = require("./routes/logic");
-//
+
+// route app website 
 const dashboardRouter = require("./app/dashboard/router");
 const dataRouter = require("./app/data/router");
 const reportRouter = require("./app/report/router");
 const chartsRouter = require("./app/charts/router");
 const authRouter = require("./app/auth/router");
 const historyRouter = require("./app/history/router");
+const signatureRouter = require("./app/signature/router");
+const urgentRouter = require("./app/urgent/router");
 
 //
 // const { authUserAdmin } = require("./middleware/auth");
@@ -69,7 +74,9 @@ app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(flash());
 // view engine setup
+
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
@@ -93,6 +100,8 @@ app.use("/data", dataRouter);
 app.use("/report", reportRouter);
 app.use("/charts", chartsRouter);
 app.use("/history", historyRouter);
+app.use("/signature", signatureRouter);
+app.use("/urgent", urgentRouter);
 //
 
 // app.use(authUserAdmin);
@@ -113,11 +122,3 @@ app.use(function (err, req, res, next) {
 });
 
 module.exports = app;
-
-// # APP_NAME=pgpag_db
-
-// # DB_USERNAME=aqilatec_root
-// # DB_PASSWORD='Wisuda_2022%t'
-// # DB_HOSTNAME='localhost'
-// # DB_NAME=pgpag_db
-// # DB_DIALECT=mysql
